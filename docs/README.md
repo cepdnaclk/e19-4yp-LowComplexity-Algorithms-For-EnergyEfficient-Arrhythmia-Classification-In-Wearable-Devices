@@ -3,35 +3,37 @@ layout: home
 permalink: index.html
 
 # Please update this with your repository name and title
-repository-name: eYY-4yp-project-template
+repository-name: e19-4yp-LowComplexity-Algorithms-For-EnergyEfficient-Arrhythmia-Classification-In-Wearable-Devices
 title:
 ---
 
 [comment]: # "This is the standard layout for the project, but you can clean this and use your own template"
 
-# Project Title
-
+# Developing Low Complexity Algorithms For Energy Efficient Arrhythmia Classification In Wearable Devices
 #### Team
 
-- eNumber, Name, [email](mailto:name@email.com)
-- eNumber, Name, [email](mailto:name@email.com)
-- eNumber, Name, [email](mailto:name@email.com)
+- E/19/111, Galappaththi M.D. , [e19111@eng.pdn.ac.lk](mailto:e19111@eng.pdn.ac.lk)
+- E/19/091, Dissanayake P.A.M. , [e19091@eng.pdn.ac.lk](mailto:e19091@eng.pdn.ac.lk)
+- E/19/227, Madushanke M.P.J. , [e19227@eng.pdn.ac.lk](mailto:e19227@eng.pdn.ac.lk)
 
 #### Supervisors
 
-- Name, [email](mailto:name@eng.pdn.ac.lk)
-- Name, [email](mailto:name@eng.pdn.ac.lk)
+- Prof.Roshan G. Ragel, [roshanr@eng.pdn.ac.lk](mailto:roshanr@eng.pdn.ac.lk)
+- Dr. Titus Jayarathna, [titus.Jayarathna@westernsydney.edu.au](mailto:titus.Jayarathna@westernsydney.edu.au)
+- Devindi G.A.I , [e17058@eng.pdn.ac.lk](mailto:e17058@eng.pdn.ac.lk)
+- Liyanage S.N , [e17190@eng.pdn.ac.lk](mailto:e17190@eng.pdn.ac.lk)
 
 #### Table of content
 
-1. [Abstract](#abstract)
-2. [Related works](#related-works)
-3. [Methodology](#methodology)
-4. [Experiment Setup and Implementation](#experiment-setup-and-implementation)
-5. [Results and Analysis](#results-and-analysis)
-6. [Conclusion](#conclusion)
-7. [Publications](#publications)
-8. [Links](#links)
+1. [Project Goal](#project-goal)
+2. [Abstract](#abstract)
+3. [Related works](#related-works)
+4. [Methodology](#methodology)
+5. [Experiment Setup and Implementation](#experiment-setup-and-implementation)
+6. [Results and Analysis](#results-and-analysis)
+7. [Conclusion](#conclusion)
+8. [Publications](#publications)
+9. [Links](#links)
 
 ---
 
@@ -41,6 +43,7 @@ This is a sample image, to show how to add images to your page. To learn more op
 ![Sample Image](./images/sample.png) 
 -->
 
+## Project Goal
 
 ## Abstract
 
