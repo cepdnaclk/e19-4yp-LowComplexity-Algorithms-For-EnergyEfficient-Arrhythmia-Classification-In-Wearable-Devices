@@ -1,0 +1,193 @@
+* For the following tests the data sets were divided as, Here the testing data is aslo have class balanced
+
+        DS_1 = [101, 106, 108, 109, 112, 114, 115, 116, 118, 119, 122, 124, 
+            201, 203, 205, 207, 208, 209, 215, 220, 223, 230]
+        DS_2 = [100, 103, 105, 111, 113, 117, 121, 123, 200, 202, 210, 212, 
+            213, 214, 219, 221, 222, 228, 231, 232, 233, 234]
+
+Batch size = 32, Iteratioins in an epoch = 140328/32 = 4386
+
+for trainig data -> Loaded 22 records: total samples = 140328 (140328 number of segments and 140328 number of labels)
+for testing data -> Loaded 22 records: total samples = 130646 (130646 number of segments and 130646 number of labels)
+
+First 10 X_train data(segments) :  [[[-0.11169756]
+  [-0.13085597]
+  [-0.14812197]
+  ...
+  [-0.00707261]
+  [ 0.02439498]
+  [ 0.05493848]]
+
+ [[-0.11169756]
+  [-0.13085597]
+  [-0.14812197]
+  ...
+  [-0.00707261]
+  [ 0.02439498]
+  [ 0.05493848]]
+
+ [[-0.0090574 ]
+  [-0.02155342]
+  [-0.03216392]
+  ...
+  [-0.07741887]
+  [-0.11407942]
+  [-0.14814301]]
+
+ ...
+
+ [[-0.04513587]
+  [-0.05061498]
+  [-0.04543   ]
+  ...
+  [ 0.01703472]
+  [-0.0157693 ]
+  [-0.04917729]]
+
+ [[-0.08710124]
+  [-0.08374245]
+  [-0.05423372]
+  ...
+  [-0.08320798]
+  [-0.12308078]
+  [-0.16018684]]
+
+ [[ 0.00777092]
+  [ 0.00094361]
+  [-0.00142074]
+  ...
+  [-0.13695392]
+  [-0.16944644]
+  [-0.18116678]]]    -> One segment contains data from a 0.69 seconds ( = 0.69*360 = 250 voltage values)
+
+  First 10 y train data (Labels) :  [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+
+1) In the first test  -> Tried with some of records and got 0.56 overall Accuracy
+
+2) At the second test -> Tred with all the records and got 0.59 overall Accuracy
+
+3) At the third test  -> Tried with removing early stopping and applied 20 epochs, got 0.61 overall Accuracy
+
+4) At the forth test  -> Tried with the previuos research CNN model & with 20 epochs, got 0.56 overall Accuracy
+
+5) At the fifth test  -> Tried with Pan-Tompkins algorithm with call-backs, got 0.61 overall Accuracy
+
+
+
+* For the following test, the data sets are divided as follows, Here the testing data is not class balanced
+
+        DS_1 = [101, 106, 108, 109, 112, 114, 115, 116, 118, 119, 122, 124, 
+            201, 203, 205, 207, 208, 209, 215, 220, 223, 230]
+        DS_2 = [100, 103, 105, 111, 113, 117, 121, 123, 200, 202, 210, 212, 
+            213, 214, 219, 221, 222, 228, 231, 232, 233, 234]
+
+Batch size = 32, Iterations in an epoch = 140328/32 = 4386
+    
+for trainig data -> Loaded 22 records: total samples = 140328
+for testing data -> Loaded 22 records: total samples = 51188
+
+The traing and testing dataset takes the same shape as above
+
+First 10 X_test data(segments) :  [[[ 0.1743552 ]
+  [ 0.17871454]
+  [ 0.18445104]
+  ...
+  [-0.10331702]
+  [-0.11037406]
+  [-0.10620812]]
+
+ [[ 0.1743552 ]
+  [ 0.17871454]
+  [ 0.18445104]
+  ...
+  [-0.10331702]
+  [-0.11037406]
+  [-0.10620812]]
+
+ [[-0.03044079]
+  [-0.04698565]
+  [-0.05944432]
+  ...
+  [ 0.2654729 ]
+  [ 0.27132353]
+  [ 0.27474717]]
+
+ ...
+
+ [[-0.03243417]
+  [-0.02060881]
+  [-0.01191598]
+  ...
+  [ 0.25636591]
+  [ 0.25293352]
+  [ 0.24254532]]
+
+ [[-0.18266977]
+  [-0.15250853]
+  [-0.11133623]
+  ...
+  [ 0.14277651]
+  [ 0.17535257]
+  [ 0.20570087]]
+
+ [[ 0.02090544]
+  [ 0.03014841]
+  [ 0.04674514]
+  ...
+  [ 0.02013728]
+  [ 0.06893223]
+  [ 0.11629373]]]
+
+  First 10 y test data (Labels) :  [0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+
+6) At the sixth test -> Removed class balancing for testing data with call-backs, got 0.92 overall accuracy
+
+
+
+* For the following test, the data sets are divided as follows, Here the training and testing data is not class balanced 
+  using SMOTE. Weighted loss function have used for the claases. 
+
+        DS_1 = [101, 106, 108, 109, 112, 114, 115, 116, 118, 119, 122, 124, 
+            201, 203, 205, 207, 208, 209, 215, 220, 223, 230]
+        DS_2 = [100, 103, 105, 111, 113, 117, 121, 123, 200, 202, 210, 212, 
+            213, 214, 219, 221, 222, 228, 231, 232, 233, 234]
+
+Batch size = 32, Iterations in an epoch = 52536/32 = 1642
+
+for trainig data -> Loaded 22 records: total samples = 52536
+Computed class weights: {np.int64(0): np.float64(0.27715292578446477), 
+np.int64(1): np.float64(13.913135593220339), np.int64(2): np.float64(3.467265047518479), 
+np.int64(3): np.float64(31.648192771084336)}
+
+for testing data -> Loaded 22 records: total samples = 51188
+
+The traing and testing dataset takes the same shape as above
+
+7) At the 7th test -> Removed class balancing using SMOTE and applied weighted loss function. Got 0.75 overall accuracy
+
+
+
+* following test is conducted splitting the dataset as above, 5 call-backs, using SMOTE and batch size = 100 and removed class
+  balancing for test data
+
+        DS_1 = [101, 106, 108, 109, 112, 114, 115, 116, 118, 119, 122, 124, 
+            201, 203, 205, 207, 208, 209, 215, 220, 223, 230]
+        DS_2 = [100, 103, 105, 111, 113, 117, 121, 123, 200, 202, 210, 212, 
+            213, 214, 219, 221, 222, 228, 231, 232, 233, 234]
+
+for trainig data -> Loaded 22 records: total samples = 52536   
+for testing data -> Loaded 22 records: total samples = 51188
+
+Batch size = 100, Iterations in an epoch = 52536/100 = 526
+
+8) At 8th test -> Use SMOTE to balance train data, (test data not balanced) and batch size = 100. Got 0.82 overall accuracy
+
+9) At 9th test -> Use weighted Loss function and batch size = 100. Got 0.81 overall accuracy
+
+
+*** SMOTE gives more accuracy than using weighted loss function ***
+
+10) At 10th test -> Reduce the model complexity, use SMOTE and batch size = 100. Got accuracy of 0.81
+
+11) At 11th test -> Used same dataset split as DS_1 and DS_2, Use callbacks, batch_size = 32. Got 0.86 overall accuracy
+
