@@ -23,17 +23,16 @@ title:
 - Devindi G.A.I , [e17058@eng.pdn.ac.lk](mailto:e17058@eng.pdn.ac.lk)
 - Liyanage S.N , [e17190@eng.pdn.ac.lk](mailto:e17190@eng.pdn.ac.lk)
 
-#### Table of content
+#### Table of content   
 
 1. [Project Goal](#project-goal)
-2. [Abstract](#abstract)
-3. [Related works](#related-works)
-4. [Methodology](#methodology)
-5. [Experiment Setup and Implementation](#experiment-setup-and-implementation)
-6. [Results and Analysis](#results-and-analysis)
-7. [Conclusion](#conclusion)
-8. [Publications](#publications)
-9. [Links](#links)
+2. [Related works](#related-works)
+3. [Methodology](#methodology)
+4. [Experiment Setup and Implementation](#experiment-setup-and-implementation)
+5. [Results and Analysis](#results-and-analysis)
+6. [Conclusion](#conclusion)
+7. [Publications](#publications)
+8. [Links](#links)
 
 ---
 
@@ -43,21 +42,38 @@ This is a sample image, to show how to add images to your page. To learn more op
 ![Sample Image](./images/sample.png) 
 -->
 
-## Project Goal
+### Project Goal
 
-## Abstract
+The primary goal of this project is to develop a low-complexity, energy-efficient classification algorithm for detecting arrhythmias from electrocardiogram (ECG) signals. Arrhythmias are abnormalities in the heart’s rhythm that can manifest as irregular, too fast (tachycardia), or too slow (bradycardia) heartbeats. Common types include atrial fibrillation (AFib), atrial flutter, ventricular premature complexes (VPCs), and ventricular tachycardia, among others. These conditions can lead to serious health issues such as stroke, heart failure, or sudden cardiac arrest if left untreated. So, identifying arrhythmias before getting
+worse plays a crucial role in the bio-engineering field. 
 
-## Related works
+Unlike traditional algorithms that require high computational resources, this research focuses on minimizing both the running time and memory/storage footprint of the classification algorithm, making it suitable for deployment on resource-constrained wearable devices and microcontrollers with limited processing power (<2kB SRAM, 1–8 MHz clock frequency).
 
-## Methodology
+To achieve this, the project will explore techniques that reduce computational complexity and optimize data representation without compromising classification accuracy. This includes designing streamlined signal processing pipelines, lightweight neural network architectures, and efficient feature extraction methods that collectively enable real-time arrhythmia detection with minimal energy consumption. Also intergrated with various variety of pre-processing techniques and algorithms to detect QRS complex. 
 
-## Experiment Setup and Implementation
+A key innovation in this work is the incorporation of Channel Attention Modules within the neural network architecture. These modules dynamically recalibrate feature maps by emphasizing diagnostically relevant ECG signal channels while suppressing less informative ones. This selective focus enhances the model’s ability to capture subtle arrhythmic patterns, improving classification accuracy without adding significant computational overhead.
 
-## Results and Analysis
+The anticipated outcome is a robust, scalable classification system that balances accuracy and efficiency, facilitating affordable and continuous cardiac monitoring in wearable health devices, ultimately improving early detection and management of arrhythmias for a wider population.
 
-## Conclusion
 
-## Publications
+### Related works
+
+#### ECG Signal Denoising
+
+ECG signals are commonly contaminated by various noise sources that can degrade the accuracy of cardiac diagnosis. Key noise types include power line interference, baseline wander, and muscle artifacts, each occupying distinct frequency bands. To address these, classical signal processing techniques such as band-pass filtering, notch filtering, and baseline correction have been widely employed. Band-pass filters effectively isolate the typical ECG frequency range, removing out-of-band noise, while notch filters specifically target power line interference at 50 or 60 Hz. Baseline wander, caused by respiration or electrode movement, is often mitigated using moving average or smoothing methods. Although these traditional filters are computationally efficient and suitable for real-time applications, they require careful parameter tuning to preserve critical ECG waveform features. These denoising methods form the foundation for preprocessing in low-power wearable ECG devices.
+
+#### QRS Complex detection
+
+
+### Methodology
+
+### Experiment Setup and Implementation
+
+### Results and Analysis
+
+### Conclusion
+
+### Publications
 [//]: # "Note: Uncomment each once you uploaded the files to the repository"
 
 <!-- 1. [Semester 7 report](./) -->
