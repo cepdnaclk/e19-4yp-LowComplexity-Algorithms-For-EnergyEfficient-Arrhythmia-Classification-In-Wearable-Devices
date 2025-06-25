@@ -1,0 +1,1249 @@
+[
+    {
+        "label": "numpy",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "numpy",
+        "description": "numpy",
+        "detail": "numpy",
+        "documentation": {}
+    },
+    {
+        "label": "compute_class_weight",
+        "importPath": "sklearn.utils.class_weight",
+        "description": "sklearn.utils.class_weight",
+        "isExtraImport": true,
+        "detail": "sklearn.utils.class_weight",
+        "documentation": {}
+    },
+    {
+        "label": "compute_class_weight",
+        "importPath": "sklearn.utils.class_weight",
+        "description": "sklearn.utils.class_weight",
+        "isExtraImport": true,
+        "detail": "sklearn.utils.class_weight",
+        "documentation": {}
+    },
+    {
+        "label": "layers",
+        "importPath": "tensorflow.keras",
+        "description": "tensorflow.keras",
+        "isExtraImport": true,
+        "detail": "tensorflow.keras",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "tensorflow.keras",
+        "description": "tensorflow.keras",
+        "isExtraImport": true,
+        "detail": "tensorflow.keras",
+        "documentation": {}
+    },
+    {
+        "label": "layers",
+        "importPath": "tensorflow.keras",
+        "description": "tensorflow.keras",
+        "isExtraImport": true,
+        "detail": "tensorflow.keras",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "tensorflow.keras",
+        "description": "tensorflow.keras",
+        "isExtraImport": true,
+        "detail": "tensorflow.keras",
+        "documentation": {}
+    },
+    {
+        "label": "matplotlib.pyplot",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "matplotlib.pyplot",
+        "description": "matplotlib.pyplot",
+        "detail": "matplotlib.pyplot",
+        "documentation": {}
+    },
+    {
+        "label": "classification_report",
+        "importPath": "sklearn.metrics",
+        "description": "sklearn.metrics",
+        "isExtraImport": true,
+        "detail": "sklearn.metrics",
+        "documentation": {}
+    },
+    {
+        "label": "confusion_matrix",
+        "importPath": "sklearn.metrics",
+        "description": "sklearn.metrics",
+        "isExtraImport": true,
+        "detail": "sklearn.metrics",
+        "documentation": {}
+    },
+    {
+        "label": "accuracy_score",
+        "importPath": "sklearn.metrics",
+        "description": "sklearn.metrics",
+        "isExtraImport": true,
+        "detail": "sklearn.metrics",
+        "documentation": {}
+    },
+    {
+        "label": "precision_score",
+        "importPath": "sklearn.metrics",
+        "description": "sklearn.metrics",
+        "isExtraImport": true,
+        "detail": "sklearn.metrics",
+        "documentation": {}
+    },
+    {
+        "label": "recall_score",
+        "importPath": "sklearn.metrics",
+        "description": "sklearn.metrics",
+        "isExtraImport": true,
+        "detail": "sklearn.metrics",
+        "documentation": {}
+    },
+    {
+        "label": "f1_score",
+        "importPath": "sklearn.metrics",
+        "description": "sklearn.metrics",
+        "isExtraImport": true,
+        "detail": "sklearn.metrics",
+        "documentation": {}
+    },
+    {
+        "label": "confusion_matrix",
+        "importPath": "sklearn.metrics",
+        "description": "sklearn.metrics",
+        "isExtraImport": true,
+        "detail": "sklearn.metrics",
+        "documentation": {}
+    },
+    {
+        "label": "seaborn",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "seaborn",
+        "description": "seaborn",
+        "detail": "seaborn",
+        "documentation": {}
+    },
+    {
+        "label": "bandpass_filter",
+        "importPath": "preProcessing.Denoise",
+        "description": "preProcessing.Denoise",
+        "isExtraImport": true,
+        "detail": "preProcessing.Denoise",
+        "documentation": {}
+    },
+    {
+        "label": "notch_filter",
+        "importPath": "preProcessing.Denoise",
+        "description": "preProcessing.Denoise",
+        "isExtraImport": true,
+        "detail": "preProcessing.Denoise",
+        "documentation": {}
+    },
+    {
+        "label": "remove_baseline",
+        "importPath": "preProcessing.Denoise",
+        "description": "preProcessing.Denoise",
+        "isExtraImport": true,
+        "detail": "preProcessing.Denoise",
+        "documentation": {}
+    },
+    {
+        "label": "bandpass_filter",
+        "importPath": "preProcessing.Denoise",
+        "description": "preProcessing.Denoise",
+        "isExtraImport": true,
+        "detail": "preProcessing.Denoise",
+        "documentation": {}
+    },
+    {
+        "label": "notch_filter",
+        "importPath": "preProcessing.Denoise",
+        "description": "preProcessing.Denoise",
+        "isExtraImport": true,
+        "detail": "preProcessing.Denoise",
+        "documentation": {}
+    },
+    {
+        "label": "remove_baseline",
+        "importPath": "preProcessing.Denoise",
+        "description": "preProcessing.Denoise",
+        "isExtraImport": true,
+        "detail": "preProcessing.Denoise",
+        "documentation": {}
+    },
+    {
+        "label": "bandpass_filter",
+        "importPath": "preProcessing.Denoise",
+        "description": "preProcessing.Denoise",
+        "isExtraImport": true,
+        "detail": "preProcessing.Denoise",
+        "documentation": {}
+    },
+    {
+        "label": "notch_filter",
+        "importPath": "preProcessing.Denoise",
+        "description": "preProcessing.Denoise",
+        "isExtraImport": true,
+        "detail": "preProcessing.Denoise",
+        "documentation": {}
+    },
+    {
+        "label": "remove_baseline",
+        "importPath": "preProcessing.Denoise",
+        "description": "preProcessing.Denoise",
+        "isExtraImport": true,
+        "detail": "preProcessing.Denoise",
+        "documentation": {}
+    },
+    {
+        "label": "bandpass_filter",
+        "importPath": "preProcessing.Denoise",
+        "description": "preProcessing.Denoise",
+        "isExtraImport": true,
+        "detail": "preProcessing.Denoise",
+        "documentation": {}
+    },
+    {
+        "label": "notch_filter",
+        "importPath": "preProcessing.Denoise",
+        "description": "preProcessing.Denoise",
+        "isExtraImport": true,
+        "detail": "preProcessing.Denoise",
+        "documentation": {}
+    },
+    {
+        "label": "remove_baseline",
+        "importPath": "preProcessing.Denoise",
+        "description": "preProcessing.Denoise",
+        "isExtraImport": true,
+        "detail": "preProcessing.Denoise",
+        "documentation": {}
+    },
+    {
+        "label": "bandpass_filter",
+        "importPath": "preProcessing.Denoise",
+        "description": "preProcessing.Denoise",
+        "isExtraImport": true,
+        "detail": "preProcessing.Denoise",
+        "documentation": {}
+    },
+    {
+        "label": "notch_filter",
+        "importPath": "preProcessing.Denoise",
+        "description": "preProcessing.Denoise",
+        "isExtraImport": true,
+        "detail": "preProcessing.Denoise",
+        "documentation": {}
+    },
+    {
+        "label": "remove_baseline",
+        "importPath": "preProcessing.Denoise",
+        "description": "preProcessing.Denoise",
+        "isExtraImport": true,
+        "detail": "preProcessing.Denoise",
+        "documentation": {}
+    },
+    {
+        "label": "bandpass_filter",
+        "importPath": "preProcessing.Denoise",
+        "description": "preProcessing.Denoise",
+        "isExtraImport": true,
+        "detail": "preProcessing.Denoise",
+        "documentation": {}
+    },
+    {
+        "label": "notch_filter",
+        "importPath": "preProcessing.Denoise",
+        "description": "preProcessing.Denoise",
+        "isExtraImport": true,
+        "detail": "preProcessing.Denoise",
+        "documentation": {}
+    },
+    {
+        "label": "remove_baseline",
+        "importPath": "preProcessing.Denoise",
+        "description": "preProcessing.Denoise",
+        "isExtraImport": true,
+        "detail": "preProcessing.Denoise",
+        "documentation": {}
+    },
+    {
+        "label": "extract_heartbeats",
+        "importPath": "preProcessing.Segment",
+        "description": "preProcessing.Segment",
+        "isExtraImport": true,
+        "detail": "preProcessing.Segment",
+        "documentation": {}
+    },
+    {
+        "label": "extract_heartbeats",
+        "importPath": "preProcessing.Segment",
+        "description": "preProcessing.Segment",
+        "isExtraImport": true,
+        "detail": "preProcessing.Segment",
+        "documentation": {}
+    },
+    {
+        "label": "extract_heartbeats",
+        "importPath": "preProcessing.Segment",
+        "description": "preProcessing.Segment",
+        "isExtraImport": true,
+        "detail": "preProcessing.Segment",
+        "documentation": {}
+    },
+    {
+        "label": "extract_heartbeats",
+        "importPath": "preProcessing.Segment",
+        "description": "preProcessing.Segment",
+        "isExtraImport": true,
+        "detail": "preProcessing.Segment",
+        "documentation": {}
+    },
+    {
+        "label": "extract_heartbeats",
+        "importPath": "preProcessing.Segment",
+        "description": "preProcessing.Segment",
+        "isExtraImport": true,
+        "detail": "preProcessing.Segment",
+        "documentation": {}
+    },
+    {
+        "label": "extract_heartbeats",
+        "importPath": "preProcessing.Segment",
+        "description": "preProcessing.Segment",
+        "isExtraImport": true,
+        "detail": "preProcessing.Segment",
+        "documentation": {}
+    },
+    {
+        "label": "balance_classes",
+        "importPath": "preProcessing.ClassBalancing",
+        "description": "preProcessing.ClassBalancing",
+        "isExtraImport": true,
+        "detail": "preProcessing.ClassBalancing",
+        "documentation": {}
+    },
+    {
+        "label": "balance_classes",
+        "importPath": "preProcessing.ClassBalancing",
+        "description": "preProcessing.ClassBalancing",
+        "isExtraImport": true,
+        "detail": "preProcessing.ClassBalancing",
+        "documentation": {}
+    },
+    {
+        "label": "balance_classes",
+        "importPath": "preProcessing.ClassBalancing",
+        "description": "preProcessing.ClassBalancing",
+        "isExtraImport": true,
+        "detail": "preProcessing.ClassBalancing",
+        "documentation": {}
+    },
+    {
+        "label": "balance_classes",
+        "importPath": "preProcessing.ClassBalancing",
+        "description": "preProcessing.ClassBalancing",
+        "isExtraImport": true,
+        "detail": "preProcessing.ClassBalancing",
+        "documentation": {}
+    },
+    {
+        "label": "normalize_beats",
+        "importPath": "preProcessing.Normalization",
+        "description": "preProcessing.Normalization",
+        "isExtraImport": true,
+        "detail": "preProcessing.Normalization",
+        "documentation": {}
+    },
+    {
+        "label": "normalize_beats",
+        "importPath": "preProcessing.Normalization",
+        "description": "preProcessing.Normalization",
+        "isExtraImport": true,
+        "detail": "preProcessing.Normalization",
+        "documentation": {}
+    },
+    {
+        "label": "normalize_beats",
+        "importPath": "preProcessing.Normalization",
+        "description": "preProcessing.Normalization",
+        "isExtraImport": true,
+        "detail": "preProcessing.Normalization",
+        "documentation": {}
+    },
+    {
+        "label": "normalize_beats",
+        "importPath": "preProcessing.Normalization",
+        "description": "preProcessing.Normalization",
+        "isExtraImport": true,
+        "detail": "preProcessing.Normalization",
+        "documentation": {}
+    },
+    {
+        "label": "normalize_beats",
+        "importPath": "preProcessing.Normalization",
+        "description": "preProcessing.Normalization",
+        "isExtraImport": true,
+        "detail": "preProcessing.Normalization",
+        "documentation": {}
+    },
+    {
+        "label": "load_ecg",
+        "importPath": "preProcessing.Load",
+        "description": "preProcessing.Load",
+        "isExtraImport": true,
+        "detail": "preProcessing.Load",
+        "documentation": {}
+    },
+    {
+        "label": "load_ecg",
+        "importPath": "preProcessing.Load",
+        "description": "preProcessing.Load",
+        "isExtraImport": true,
+        "detail": "preProcessing.Load",
+        "documentation": {}
+    },
+    {
+        "label": "load_ecg",
+        "importPath": "preProcessing.Load",
+        "description": "preProcessing.Load",
+        "isExtraImport": true,
+        "detail": "preProcessing.Load",
+        "documentation": {}
+    },
+    {
+        "label": "load_ecg",
+        "importPath": "preProcessing.Load",
+        "description": "preProcessing.Load",
+        "isExtraImport": true,
+        "detail": "preProcessing.Load",
+        "documentation": {}
+    },
+    {
+        "label": "load_ecg",
+        "importPath": "preProcessing.Load",
+        "description": "preProcessing.Load",
+        "isExtraImport": true,
+        "detail": "preProcessing.Load",
+        "documentation": {}
+    },
+    {
+        "label": "load_ecg",
+        "importPath": "preProcessing.Load",
+        "description": "preProcessing.Load",
+        "isExtraImport": true,
+        "detail": "preProcessing.Load",
+        "documentation": {}
+    },
+    {
+        "label": "load_ecg",
+        "importPath": "preProcessing.Load",
+        "description": "preProcessing.Load",
+        "isExtraImport": true,
+        "detail": "preProcessing.Load",
+        "documentation": {}
+    },
+    {
+        "label": "create_labels",
+        "importPath": "preProcessing.Labels",
+        "description": "preProcessing.Labels",
+        "isExtraImport": true,
+        "detail": "preProcessing.Labels",
+        "documentation": {}
+    },
+    {
+        "label": "create_labels",
+        "importPath": "preProcessing.Labels",
+        "description": "preProcessing.Labels",
+        "isExtraImport": true,
+        "detail": "preProcessing.Labels",
+        "documentation": {}
+    },
+    {
+        "label": "create_labels",
+        "importPath": "preProcessing.Labels",
+        "description": "preProcessing.Labels",
+        "isExtraImport": true,
+        "detail": "preProcessing.Labels",
+        "documentation": {}
+    },
+    {
+        "label": "AAMI_classes",
+        "importPath": "preProcessing.Labels",
+        "description": "preProcessing.Labels",
+        "isExtraImport": true,
+        "detail": "preProcessing.Labels",
+        "documentation": {}
+    },
+    {
+        "label": "create_labels",
+        "importPath": "preProcessing.Labels",
+        "description": "preProcessing.Labels",
+        "isExtraImport": true,
+        "detail": "preProcessing.Labels",
+        "documentation": {}
+    },
+    {
+        "label": "AAMI_classes",
+        "importPath": "preProcessing.Labels",
+        "description": "preProcessing.Labels",
+        "isExtraImport": true,
+        "detail": "preProcessing.Labels",
+        "documentation": {}
+    },
+    {
+        "label": "train_model",
+        "importPath": "cnnModel.Train",
+        "description": "cnnModel.Train",
+        "isExtraImport": true,
+        "detail": "cnnModel.Train",
+        "documentation": {}
+    },
+    {
+        "label": "evaluate_model",
+        "importPath": "cnnModel.Evaluate",
+        "description": "cnnModel.Evaluate",
+        "isExtraImport": true,
+        "detail": "cnnModel.Evaluate",
+        "documentation": {}
+    },
+    {
+        "label": "plot_metrics",
+        "importPath": "cnnModel.Evaluate",
+        "description": "cnnModel.Evaluate",
+        "isExtraImport": true,
+        "detail": "cnnModel.Evaluate",
+        "documentation": {}
+    },
+    {
+        "label": "evaluate_model",
+        "importPath": "cnnModel.Evaluate",
+        "description": "cnnModel.Evaluate",
+        "isExtraImport": true,
+        "detail": "cnnModel.Evaluate",
+        "documentation": {}
+    },
+    {
+        "label": "plot_metrics",
+        "importPath": "cnnModel.Evaluate",
+        "description": "cnnModel.Evaluate",
+        "isExtraImport": true,
+        "detail": "cnnModel.Evaluate",
+        "documentation": {}
+    },
+    {
+        "label": "get_class_weights",
+        "importPath": "cnnModel.AssignClassWeights",
+        "description": "cnnModel.AssignClassWeights",
+        "isExtraImport": true,
+        "detail": "cnnModel.AssignClassWeights",
+        "documentation": {}
+    },
+    {
+        "label": "train_model_with_weights",
+        "importPath": "cnnModel.TrainWithWeights",
+        "description": "cnnModel.TrainWithWeights",
+        "isExtraImport": true,
+        "detail": "cnnModel.TrainWithWeights",
+        "documentation": {}
+    },
+    {
+        "label": "tensorflow",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "tensorflow",
+        "description": "tensorflow",
+        "detail": "tensorflow",
+        "documentation": {}
+    },
+    {
+        "label": "os",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "os",
+        "description": "os",
+        "detail": "os",
+        "documentation": {}
+    },
+    {
+        "label": "wfdb",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "wfdb",
+        "description": "wfdb",
+        "detail": "wfdb",
+        "documentation": {}
+    },
+    {
+        "label": "bandpass_filter",
+        "importPath": "Denoise",
+        "description": "Denoise",
+        "isExtraImport": true,
+        "detail": "Denoise",
+        "documentation": {}
+    },
+    {
+        "label": "notch_filter",
+        "importPath": "Denoise",
+        "description": "Denoise",
+        "isExtraImport": true,
+        "detail": "Denoise",
+        "documentation": {}
+    },
+    {
+        "label": "remove_baseline",
+        "importPath": "Denoise",
+        "description": "Denoise",
+        "isExtraImport": true,
+        "detail": "Denoise",
+        "documentation": {}
+    },
+    {
+        "label": "extract_heartbeats",
+        "importPath": "Segment",
+        "description": "Segment",
+        "isExtraImport": true,
+        "detail": "Segment",
+        "documentation": {}
+    },
+    {
+        "label": "balance_classes",
+        "importPath": "ClassBalancing",
+        "description": "ClassBalancing",
+        "isExtraImport": true,
+        "detail": "ClassBalancing",
+        "documentation": {}
+    },
+    {
+        "label": "normalize_beats",
+        "importPath": "Normalization",
+        "description": "Normalization",
+        "isExtraImport": true,
+        "detail": "Normalization",
+        "documentation": {}
+    },
+    {
+        "label": "load_ecg",
+        "importPath": "Load",
+        "description": "Load",
+        "isExtraImport": true,
+        "detail": "Load",
+        "documentation": {}
+    },
+    {
+        "label": "create_labels",
+        "importPath": "Labels",
+        "description": "Labels",
+        "isExtraImport": true,
+        "detail": "Labels",
+        "documentation": {}
+    },
+    {
+        "label": "torch",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "torch",
+        "description": "torch",
+        "detail": "torch",
+        "documentation": {}
+    },
+    {
+        "label": "snntorch",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "snntorch",
+        "description": "snntorch",
+        "detail": "snntorch",
+        "documentation": {}
+    },
+    {
+        "label": "spikegen",
+        "importPath": "snntorch",
+        "description": "snntorch",
+        "isExtraImport": true,
+        "detail": "snntorch",
+        "documentation": {}
+    },
+    {
+        "label": "spikegen",
+        "importPath": "snntorch",
+        "description": "snntorch",
+        "isExtraImport": true,
+        "detail": "snntorch",
+        "documentation": {}
+    },
+    {
+        "label": "surrogate",
+        "importPath": "snntorch",
+        "description": "snntorch",
+        "isExtraImport": true,
+        "detail": "snntorch",
+        "documentation": {}
+    },
+    {
+        "label": "neurokit2",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "neurokit2",
+        "description": "neurokit2",
+        "detail": "neurokit2",
+        "documentation": {}
+    },
+    {
+        "label": "sys",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "sys",
+        "description": "sys",
+        "detail": "sys",
+        "documentation": {}
+    },
+    {
+        "label": "SMOTE",
+        "importPath": "imblearn.over_sampling",
+        "description": "imblearn.over_sampling",
+        "isExtraImport": true,
+        "detail": "imblearn.over_sampling",
+        "documentation": {}
+    },
+    {
+        "label": "RandomOverSampler",
+        "importPath": "imblearn.over_sampling",
+        "description": "imblearn.over_sampling",
+        "isExtraImport": true,
+        "detail": "imblearn.over_sampling",
+        "documentation": {}
+    },
+    {
+        "label": "Counter",
+        "importPath": "collections",
+        "description": "collections",
+        "isExtraImport": true,
+        "detail": "collections",
+        "documentation": {}
+    },
+    {
+        "label": "butter",
+        "importPath": "scipy.signal",
+        "description": "scipy.signal",
+        "isExtraImport": true,
+        "detail": "scipy.signal",
+        "documentation": {}
+    },
+    {
+        "label": "filtfilt",
+        "importPath": "scipy.signal",
+        "description": "scipy.signal",
+        "isExtraImport": true,
+        "detail": "scipy.signal",
+        "documentation": {}
+    },
+    {
+        "label": "iirnotch",
+        "importPath": "scipy.signal",
+        "description": "scipy.signal",
+        "isExtraImport": true,
+        "detail": "scipy.signal",
+        "documentation": {}
+    },
+    {
+        "label": "find_peaks",
+        "importPath": "scipy.signal",
+        "description": "scipy.signal",
+        "isExtraImport": true,
+        "detail": "scipy.signal",
+        "documentation": {}
+    },
+    {
+        "label": "torch.nn",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "torch.nn",
+        "description": "torch.nn",
+        "detail": "torch.nn",
+        "documentation": {}
+    },
+    {
+        "label": "train_model",
+        "importPath": "snnModel.Train",
+        "description": "snnModel.Train",
+        "isExtraImport": true,
+        "detail": "snnModel.Train",
+        "documentation": {}
+    },
+    {
+        "label": "train_model",
+        "importPath": "snnModel.Train",
+        "description": "snnModel.Train",
+        "isExtraImport": true,
+        "detail": "snnModel.Train",
+        "documentation": {}
+    },
+    {
+        "label": "evaluate_model",
+        "importPath": "snnModel.Evaluate",
+        "description": "snnModel.Evaluate",
+        "isExtraImport": true,
+        "detail": "snnModel.Evaluate",
+        "documentation": {}
+    },
+    {
+        "label": "evaluate_model",
+        "importPath": "snnModel.Evaluate",
+        "description": "snnModel.Evaluate",
+        "isExtraImport": true,
+        "detail": "snnModel.Evaluate",
+        "documentation": {}
+    },
+    {
+        "label": "plot_metrics",
+        "importPath": "snnModel.Evaluate",
+        "description": "snnModel.Evaluate",
+        "isExtraImport": true,
+        "detail": "snnModel.Evaluate",
+        "documentation": {}
+    },
+    {
+        "label": "delta_modulation",
+        "importPath": "snnModel.DeltaModulation",
+        "description": "snnModel.DeltaModulation",
+        "isExtraImport": true,
+        "detail": "snnModel.DeltaModulation",
+        "documentation": {}
+    },
+    {
+        "label": "delta_modulation",
+        "importPath": "snnModel.DeltaModulation",
+        "description": "snnModel.DeltaModulation",
+        "isExtraImport": true,
+        "detail": "snnModel.DeltaModulation",
+        "documentation": {}
+    },
+    {
+        "label": "SNN",
+        "importPath": "snnModel.SnnModel",
+        "description": "snnModel.SnnModel",
+        "isExtraImport": true,
+        "detail": "snnModel.SnnModel",
+        "documentation": {}
+    },
+    {
+        "label": "DataLoader",
+        "importPath": "torch.utils.data",
+        "description": "torch.utils.data",
+        "isExtraImport": true,
+        "detail": "torch.utils.data",
+        "documentation": {}
+    },
+    {
+        "label": "TensorDataset",
+        "importPath": "torch.utils.data",
+        "description": "torch.utils.data",
+        "isExtraImport": true,
+        "detail": "torch.utils.data",
+        "documentation": {}
+    },
+    {
+        "label": "get_class_weights",
+        "kind": 2,
+        "importPath": "cnnModel.AssignClassWeights",
+        "description": "cnnModel.AssignClassWeights",
+        "peekOfCode": "def get_class_weights(y_train):\n    \"\"\"\n    Compute class weights dictionary for imbalanced data.\n    Args:\n        y_train: 1D numpy array of training labels\n    Returns:\n        class_weights: dict mapping class indices to weights\n    \"\"\"\n    classes = np.unique(y_train)\n    weights = compute_class_weight(class_weight='balanced', classes=classes, y=y_train)",
+        "detail": "cnnModel.AssignClassWeights",
+        "documentation": {}
+    },
+    {
+        "label": "build_cnn",
+        "kind": 2,
+        "importPath": "cnnModel.CnnModel",
+        "description": "cnnModel.CnnModel",
+        "peekOfCode": "def build_cnn(input_shape, num_classes=4):\n    model = models.Sequential([\n        layers.Input(shape=input_shape),\n        layers.Conv1D(64, 15, activation='relu', padding='same'), \n        layers.BatchNormalization(),\n        layers.MaxPooling1D(2),\n        layers.Conv1D(128, 7, activation='relu', padding='same'),\n        layers.BatchNormalization(),\n        layers.MaxPooling1D(2),\n        layers.Conv1D(256, 5, activation='relu', padding='same'),",
+        "detail": "cnnModel.CnnModel",
+        "documentation": {}
+    },
+    {
+        "label": "channel_attention",
+        "kind": 2,
+        "importPath": "cnnModel.CnnModelWithChannelAttention",
+        "description": "cnnModel.CnnModelWithChannelAttention",
+        "peekOfCode": "def channel_attention(input_feature, ratio=8):\n    \"\"\"Channel Attention Module for 1D signals\"\"\"\n    channel = input_feature.shape[-1]\n    # Average and Max Pooling\n    avg_pool = layers.GlobalAveragePooling1D()(input_feature)\n    max_pool = layers.GlobalMaxPooling1D()(input_feature)\n    # Shared MLP with bottleneck\n    dense1 = layers.Dense(channel//ratio, activation='relu')\n    dense2 = layers.Dense(channel)\n    avg_out = dense2(dense1(avg_pool))",
+        "detail": "cnnModel.CnnModelWithChannelAttention",
+        "documentation": {}
+    },
+    {
+        "label": "build_cnn_with_attention",
+        "kind": 2,
+        "importPath": "cnnModel.CnnModelWithChannelAttention",
+        "description": "cnnModel.CnnModelWithChannelAttention",
+        "peekOfCode": "def build_cnn_with_attention(input_shape, num_classes=4):\n    \"\"\"Modified CNN with Channel Attention Modules\"\"\"\n    inputs = layers.Input(shape=input_shape)\n    # Block 1\n    x = layers.Conv1D(64, 15, padding='same')(inputs)\n    x = layers.BatchNormalization()(x)\n    x = layers.Activation('relu')(x)\n    x = channel_attention(x)  # Attention after first conv\n    x = layers.MaxPooling1D(2)(x)\n    # Block 2",
+        "detail": "cnnModel.CnnModelWithChannelAttention",
+        "documentation": {}
+    },
+    {
+        "label": "plot_metrics",
+        "kind": 2,
+        "importPath": "cnnModel.Evaluate",
+        "description": "cnnModel.Evaluate",
+        "peekOfCode": "def plot_metrics(history):\n    plt.figure(figsize=(12, 4))\n    plt.subplot(1, 2, 1)\n    plt.plot(history.history['accuracy'], label='Train')\n    plt.plot(history.history['val_accuracy'], label='Validation')\n    plt.title('Model Accuracy')\n    plt.ylabel('Accuracy')\n    plt.xlabel('Epoch')\n    plt.legend()\n    plt.subplot(1, 2, 2)",
+        "detail": "cnnModel.Evaluate",
+        "documentation": {}
+    },
+    {
+        "label": "evaluate_model",
+        "kind": 2,
+        "importPath": "cnnModel.Evaluate",
+        "description": "cnnModel.Evaluate",
+        "peekOfCode": "def evaluate_model(model, X_test, y_test):\n    y_pred = np.argmax(model.predict(X_test), axis=1)\n    print(classification_report(y_test, y_pred))\n    cm = confusion_matrix(y_test, y_pred)\n    sns.heatmap(cm, annot=True, fmt='d', cmap='Blues')\n    plt.xlabel('Predicted')\n    plt.ylabel('True')\n    plt.show()",
+        "detail": "cnnModel.Evaluate",
+        "documentation": {}
+    },
+    {
+        "label": "process_record",
+        "kind": 2,
+        "importPath": "cnnModel.MainPipeLine",
+        "description": "cnnModel.MainPipeLine",
+        "peekOfCode": "def process_record(record_id, data_dir, balance=True):\n    signal, rpeaks, fs, ann = load_ecg(record_id, data_dir)\n    print(f\"Total annotations: {len(ann.sample)}\")\n    signal = bandpass_filter(signal, fs)\n    signal = notch_filter(signal, fs)\n    signal = remove_baseline(signal, fs)\n    beats, valid_rpeaks = extract_heartbeats(signal, fs, ann.sample)\n    print(f\"Extracted {len(beats)} valid beats\")\n    beats = normalize_beats(beats)\n    labels = create_labels(valid_rpeaks, ann)",
+        "detail": "cnnModel.MainPipeLine",
+        "documentation": {}
+    },
+    {
+        "label": "load_dataset",
+        "kind": 2,
+        "importPath": "cnnModel.MainPipeLine",
+        "description": "cnnModel.MainPipeLine",
+        "peekOfCode": "def load_dataset(record_ids, data_dir, balance=True):\n    all_beats = []\n    all_labels = []\n    for record_id in record_ids:\n        print(f\"Processing record {record_id}...\")\n        X, y = process_record(str(record_id), data_dir, balance=balance)\n        all_beats.append(X)\n        all_labels.append(y)\n    X_all = np.concatenate(all_beats, axis=0)\n    y_all = np.concatenate(all_labels, axis=0)",
+        "detail": "cnnModel.MainPipeLine",
+        "documentation": {}
+    },
+    {
+        "label": "process_record",
+        "kind": 2,
+        "importPath": "cnnModel.MainPipeLineWithWeightedLossF",
+        "description": "cnnModel.MainPipeLineWithWeightedLossF",
+        "peekOfCode": "def process_record(record_id, data_dir):\n    signal, rpeaks, fs, ann = load_ecg(record_id, data_dir)\n    print(f\"Total annotations: {len(ann.sample)}\")\n    signal = bandpass_filter(signal, fs)\n    signal = notch_filter(signal, fs)\n    signal = remove_baseline(signal, fs)\n    beats, valid_rpeaks = extract_heartbeats(signal, fs, ann.sample)\n    print(f\"Extracted {len(beats)} valid beats\")\n    beats = normalize_beats(beats)\n    labels = create_labels(valid_rpeaks, ann)",
+        "detail": "cnnModel.MainPipeLineWithWeightedLossF",
+        "documentation": {}
+    },
+    {
+        "label": "load_dataset",
+        "kind": 2,
+        "importPath": "cnnModel.MainPipeLineWithWeightedLossF",
+        "description": "cnnModel.MainPipeLineWithWeightedLossF",
+        "peekOfCode": "def load_dataset(record_ids, data_dir):\n    all_beats = []\n    all_labels = []\n    for record_id in record_ids:\n        print(f\"Processing record {record_id}...\")\n        X, y = process_record(str(record_id), data_dir)\n        all_beats.append(X)\n        all_labels.append(y)\n    X_all = np.concatenate(all_beats, axis=0)\n    y_all = np.concatenate(all_labels, axis=0)",
+        "detail": "cnnModel.MainPipeLineWithWeightedLossF",
+        "documentation": {}
+    },
+    {
+        "label": "train_model",
+        "kind": 2,
+        "importPath": "cnnModel.Train",
+        "description": "cnnModel.Train",
+        "peekOfCode": "def train_model(X_train, y_train, X_val, y_val):\n    model = build_cnn(input_shape=X_train.shape[1:])\n    # model = build_cnn_with_attention(input_shape=X_train.shape[1:], num_classes=len(np.unique(y_train)))\n    # Compile the model explicitly\n    model.compile(\n        optimizer='adam',\n        loss='sparse_categorical_crossentropy',\n        metrics=['accuracy']\n    )\n    # Define early stopping according to the improvement of val_loss (Validation loss)",
+        "detail": "cnnModel.Train",
+        "documentation": {}
+    },
+    {
+        "label": "train_model_with_weights",
+        "kind": 2,
+        "importPath": "cnnModel.TrainWithWeights",
+        "description": "cnnModel.TrainWithWeights",
+        "peekOfCode": "def train_model_with_weights(X_train, y_train, X_val, y_val, class_weights=None):\n    model = build_cnn(input_shape=X_train.shape[1:], num_classes=len(np.unique(y_train)))\n    callbacks = [\n        tf.keras.callbacks.EarlyStopping(patience=5, restore_best_weights=True)\n    ]\n    history = model.fit(\n        X_train, y_train,\n        validation_data=(X_val, y_val),\n        epochs=50,\n        batch_size=100,",
+        "detail": "cnnModel.TrainWithWeights",
+        "documentation": {}
+    },
+    {
+        "label": "DATA_DIR",
+        "kind": 5,
+        "importPath": "data.Download",
+        "description": "data.Download",
+        "peekOfCode": "DATA_DIR = \"data/mitdb\"\nif os.path.isdir(DATA_DIR):\n    print(\"Dataset already exists.\")\nelse : \n    os.makedirs(DATA_DIR, exist_ok=True)\n    print(\"Downloading MIT-BIH data set ......\")\n    wfdb.dl_database('mitdb', DATA_DIR)\n    print(\"Download ended ! Now you you can work with pre-processing\")",
+        "detail": "data.Download",
+        "documentation": {}
+    },
+    {
+        "label": "extract_waveform_features",
+        "kind": 2,
+        "importPath": "preProcessing.testScripts.FeatureExtraction",
+        "description": "preProcessing.testScripts.FeatureExtraction",
+        "peekOfCode": "def extract_waveform_features(record_id, data_dir):\n    signal, rpeaks, fs, ann = load_ecg(record_id, data_dir)\n    print(f\"Total annotations: {len(ann.sample)}\")\n    signal = bandpass_filter(signal, fs)\n    signal = notch_filter(signal, fs)\n    signal = remove_baseline(signal, fs)\n    beats, valid_rpeaks = extract_heartbeats(signal, fs, ann.sample)\n    print(f\"Extracted {len(beats)} valid beats\")\n    beats = normalize_beats(beats)\n    labels = create_labels(valid_rpeaks, ann)",
+        "detail": "preProcessing.testScripts.FeatureExtraction",
+        "documentation": {}
+    },
+    {
+        "label": "delta_modulation",
+        "kind": 2,
+        "importPath": "preProcessing.testScripts.TestDeltaModulation",
+        "description": "preProcessing.testScripts.TestDeltaModulation",
+        "peekOfCode": "def delta_modulation(beats, threshold=0.1):\n    return np.array([\n        spikegen.delta(torch.tensor(beat), threshold=threshold, off_spike=True).numpy()\n        for beat in beats\n    ])\ndef plot_beat_and_spikes(beat, spikes, fs, title_prefix=\"\"):\n    time_axis = np.arange(len(beat)) / fs\n    plt.figure(figsize=(12, 5))\n    plt.subplot(2,1,1)\n    plt.plot(time_axis, beat)",
+        "detail": "preProcessing.testScripts.TestDeltaModulation",
+        "documentation": {}
+    },
+    {
+        "label": "plot_beat_and_spikes",
+        "kind": 2,
+        "importPath": "preProcessing.testScripts.TestDeltaModulation",
+        "description": "preProcessing.testScripts.TestDeltaModulation",
+        "peekOfCode": "def plot_beat_and_spikes(beat, spikes, fs, title_prefix=\"\"):\n    time_axis = np.arange(len(beat)) / fs\n    plt.figure(figsize=(12, 5))\n    plt.subplot(2,1,1)\n    plt.plot(time_axis, beat)\n    plt.title(f\"{title_prefix} Normalized ECG Beat\")\n    plt.xlabel(\"Time (s)\")\n    plt.ylabel(\"Amplitude\")\n    plt.grid(True)\n    plt.subplot(2,1,2)",
+        "detail": "preProcessing.testScripts.TestDeltaModulation",
+        "documentation": {}
+    },
+    {
+        "label": "plot_qrs_complex",
+        "kind": 2,
+        "importPath": "preProcessing.testScripts.TestDenoise",
+        "description": "preProcessing.testScripts.TestDenoise",
+        "peekOfCode": "def plot_qrs_complex(signal, rpeak, title=\"QRS Complex\"):\n    \"\"\"Plot 250-sample QRS complex centered on R-peak\"\"\"\n    start = max(rpeak - 125, 0)\n    end = min(rpeak + 125, len(signal))\n    qrs = signal[start:end]\n    plt.figure(figsize=(10, 4))\n    plt.plot(qrs, label=title)\n    plt.xlabel(\"Samples (250 samples total)\")\n    plt.ylabel(\"Amplitude\")\n    plt.title(f\"{title}\\nR-peak at sample 125\")",
+        "detail": "preProcessing.testScripts.TestDenoise",
+        "documentation": {}
+    },
+    {
+        "label": "record_id",
+        "kind": 5,
+        "importPath": "preProcessing.testScripts.TestSegmenting",
+        "description": "preProcessing.testScripts.TestSegmenting",
+        "peekOfCode": "record_id = 101\ndata_dir = './data/mitdb'\nsignal, rpeaks, fs, ann = load_ecg(record_id, data_dir)\nprint(\"Number of events/R peaks found by annotations : \", len(rpeaks))\nbeats, valid_rpeaks = extract_heartbeats(signal,fs,ann.sample)\nprint(\"Number of events/R peaks found by Pan-Tompkins algorithm : \", len(valid_rpeaks))\nprint(\"Number of segments taken from the record : \", len(beats))\nprint(\"Accuracy of the algorithm : \", len(valid_rpeaks)/len(rpeaks))\n# Plot ECG with detected R-peaks\nplt.figure(figsize=(15, 4))",
+        "detail": "preProcessing.testScripts.TestSegmenting",
+        "documentation": {}
+    },
+    {
+        "label": "data_dir",
+        "kind": 5,
+        "importPath": "preProcessing.testScripts.TestSegmenting",
+        "description": "preProcessing.testScripts.TestSegmenting",
+        "peekOfCode": "data_dir = './data/mitdb'\nsignal, rpeaks, fs, ann = load_ecg(record_id, data_dir)\nprint(\"Number of events/R peaks found by annotations : \", len(rpeaks))\nbeats, valid_rpeaks = extract_heartbeats(signal,fs,ann.sample)\nprint(\"Number of events/R peaks found by Pan-Tompkins algorithm : \", len(valid_rpeaks))\nprint(\"Number of segments taken from the record : \", len(beats))\nprint(\"Accuracy of the algorithm : \", len(valid_rpeaks)/len(rpeaks))\n# Plot ECG with detected R-peaks\nplt.figure(figsize=(15, 4))\nplt.plot(signal, label='Synthetic ECG')",
+        "detail": "preProcessing.testScripts.TestSegmenting",
+        "documentation": {}
+    },
+    {
+        "label": "balance_classes",
+        "kind": 2,
+        "importPath": "preProcessing.ClassBalancing",
+        "description": "preProcessing.ClassBalancing",
+        "peekOfCode": "def balance_classes(X, y):\n    y = np.ravel(y)\n    class_counts = Counter(y)\n    min_class_size = min(class_counts.values())\n    # print(f\"Class distribution before balancing: {class_counts}\")\n    if min_class_size < 2:\n        # print(\"Some classes have fewer than 2 samples. Using RandomOverSampler instead of SMOTE.\")\n        ros = RandomOverSampler(random_state=42)\n        return ros.fit_resample(X, y)\n    k_neighbors = min(5, min_class_size - 1)",
+        "detail": "preProcessing.ClassBalancing",
+        "documentation": {}
+    },
+    {
+        "label": "bandpass_filter",
+        "kind": 2,
+        "importPath": "preProcessing.Denoise",
+        "description": "preProcessing.Denoise",
+        "peekOfCode": "def bandpass_filter(signal, fs, lowcut=0.5, highcut=40):\n    nyq = 0.5 * fs\n    low = lowcut / nyq\n    high = highcut / nyq\n    b, a = butter(4, [low, high], btype='band')\n    return filtfilt(b, a, signal)\n# Removes power line interference (typically 50Hz or 60Hz)\ndef notch_filter(signal, fs, freq=50, Q=30):\n    nyq = 0.5 * fs\n    freq = freq / nyq",
+        "detail": "preProcessing.Denoise",
+        "documentation": {}
+    },
+    {
+        "label": "notch_filter",
+        "kind": 2,
+        "importPath": "preProcessing.Denoise",
+        "description": "preProcessing.Denoise",
+        "peekOfCode": "def notch_filter(signal, fs, freq=50, Q=30):\n    nyq = 0.5 * fs\n    freq = freq / nyq\n    b, a = iirnotch(freq, Q)\n    return filtfilt(b, a, signal)\n# Removes baseline wander using a moving average approach\ndef remove_baseline(signal, fs, window_size=0.2):\n    window_samples = int(window_size * fs)\n    baseline = np.convolve(signal, np.ones(window_samples)/window_samples, mode='same')\n    return signal - baseline",
+        "detail": "preProcessing.Denoise",
+        "documentation": {}
+    },
+    {
+        "label": "remove_baseline",
+        "kind": 2,
+        "importPath": "preProcessing.Denoise",
+        "description": "preProcessing.Denoise",
+        "peekOfCode": "def remove_baseline(signal, fs, window_size=0.2):\n    window_samples = int(window_size * fs)\n    baseline = np.convolve(signal, np.ones(window_samples)/window_samples, mode='same')\n    return signal - baseline",
+        "detail": "preProcessing.Denoise",
+        "documentation": {}
+    },
+    {
+        "label": "get_class_from_symbol",
+        "kind": 2,
+        "importPath": "preProcessing.Labels",
+        "description": "preProcessing.Labels",
+        "peekOfCode": "def get_class_from_symbol(symbol):\n    \"\"\"Map beat symbol to class index based on AAMI classes.\"\"\"\n    for class_idx, symbols in AAMI_classes.items():\n        if symbol in symbols:\n            return class_idx\n    # If symbol not found in any class, consider it normal (class 0)\n    return 0\ndef create_labels(rpeaks, annotation):\n    \"\"\"\n    Create multi-class labels for detected R-peaks based on annotation symbols.",
+        "detail": "preProcessing.Labels",
+        "documentation": {}
+    },
+    {
+        "label": "create_labels",
+        "kind": 2,
+        "importPath": "preProcessing.Labels",
+        "description": "preProcessing.Labels",
+        "peekOfCode": "def create_labels(rpeaks, annotation):\n    \"\"\"\n    Create multi-class labels for detected R-peaks based on annotation symbols.\n    Args:\n        rpeaks (np.array): Detected R-peak sample indices\n        annotation (wfdb.Annotation): Annotation object with .sample and .symbol arrays\n    Returns:\n        np.array: Array of class labels for each R-peak\n    \"\"\"\n    labels = []",
+        "detail": "preProcessing.Labels",
+        "documentation": {}
+    },
+    {
+        "label": "AAMI_classes",
+        "kind": 5,
+        "importPath": "preProcessing.Labels",
+        "description": "preProcessing.Labels",
+        "peekOfCode": "AAMI_classes = {\n    0: ['N', 'L', 'R', 'e', 'j'],      \n    1: ['A', 'a', 'J', 'S'],          \n    2: ['V', 'E'],                    \n    3: ['F'],                         \n    4: ['P', '/', 'f', 'u']           \n}\ndef get_class_from_symbol(symbol):\n    \"\"\"Map beat symbol to class index based on AAMI classes.\"\"\"\n    for class_idx, symbols in AAMI_classes.items():",
+        "detail": "preProcessing.Labels",
+        "documentation": {}
+    },
+    {
+        "label": "load_ecg",
+        "kind": 2,
+        "importPath": "preProcessing.Load",
+        "description": "preProcessing.Load",
+        "peekOfCode": "def load_ecg(record_id, data_dir):\n    \"\"\"\n    Load ECG record and return signal, annotations, and sampling frequency\n    Args:\n        record_id: MIT-BIH record number (e.g., '100')\n        data_dir: Path to directory containing the MIT-BIH data\n    Returns:\n        signal: ECG signal (Lead II)\n        rpeaks: Sample indices of R-peaks -> Total beats in  101  record :  [     7     83    396 ... 649004 649372 649751]\n        fs: Sampling frequency (Hz)",
+        "detail": "preProcessing.Load",
+        "documentation": {}
+    },
+    {
+        "label": "normalize_beats_beat_wise_z_score",
+        "kind": 2,
+        "importPath": "preProcessing.Normalization",
+        "description": "preProcessing.Normalization",
+        "peekOfCode": "def normalize_beats_beat_wise_z_score(beats):\n    \"\"\"Normalize each beat independently\"\"\"\n    return np.array([(beat - np.mean(beat))/np.std(beat) for beat in beats])\n# Min-Max Normalization (Scaling to )\n# Scales each beat independently so that its minimum value maps to 0 and maximum to 1.\ndef normalize_beats_min_max(beats):\n    normalized = []\n    for beat in beats:\n        min_val = np.min(beat)\n        max_val = np.max(beat)",
+        "detail": "preProcessing.Normalization",
+        "documentation": {}
+    },
+    {
+        "label": "normalize_beats_min_max",
+        "kind": 2,
+        "importPath": "preProcessing.Normalization",
+        "description": "preProcessing.Normalization",
+        "peekOfCode": "def normalize_beats_min_max(beats):\n    normalized = []\n    for beat in beats:\n        min_val = np.min(beat)\n        max_val = np.max(beat)\n        norm_beat = (beat - min_val) / (max_val - min_val + 1e-8)  # Add epsilon to avoid div by zero\n        normalized.append(norm_beat)\n    return np.array(normalized)\n# Median and Interquartile Range (Robust Scaling)\n# Centers the beat using the median and scales by the interquartile range (IQR), which is robust to outliers.",
+        "detail": "preProcessing.Normalization",
+        "documentation": {}
+    },
+    {
+        "label": "normalize_beats_median_interquartile",
+        "kind": 2,
+        "importPath": "preProcessing.Normalization",
+        "description": "preProcessing.Normalization",
+        "peekOfCode": "def normalize_beats_median_interquartile(beats):\n    normalized = []\n    for beat in beats:\n        median = np.median(beat)\n        q75, q25 = np.percentile(beat, [75 ,25])\n        iqr = q75 - q25 + 1e-8\n        norm_beat = (beat - median) / iqr\n        normalized.append(norm_beat)\n    return np.array(normalized)\n#  Global Z-Score Normalization",
+        "detail": "preProcessing.Normalization",
+        "documentation": {}
+    },
+    {
+        "label": "normalize_beats_global_z_score",
+        "kind": 2,
+        "importPath": "preProcessing.Normalization",
+        "description": "preProcessing.Normalization",
+        "peekOfCode": "def normalize_beats_global_z_score(beats):\n    all_samples = beats.flatten()\n    global_mean = np.mean(all_samples)\n    global_std = np.std(all_samples)\n    # Normalize using global statistics\n    normalized_beats = (beats - global_mean) / (global_std + 1e-8)\n    print(f\"Global mean: {global_mean}\")\n    print(f\"Global std: {global_std}\")\n    return normalized_beats\n# L2 Normalization (Unit Norm)",
+        "detail": "preProcessing.Normalization",
+        "documentation": {}
+    },
+    {
+        "label": "normalize_beats_l2_normalization",
+        "kind": 2,
+        "importPath": "preProcessing.Normalization",
+        "description": "preProcessing.Normalization",
+        "peekOfCode": "def normalize_beats_l2_normalization(beats):\n    normalized = []\n    for beat in beats:\n        norm = np.linalg.norm(beat) + 1e-8\n        norm_beat = beat / norm\n        normalized.append(norm_beat)\n    return np.array(normalized)\n# Max Absolute Scaling\n# Scales each beat by dividing by its maximum absolute value, so the values lie in [-1, 1].\ndef normalize_beats(beats):",
+        "detail": "preProcessing.Normalization",
+        "documentation": {}
+    },
+    {
+        "label": "normalize_beats",
+        "kind": 2,
+        "importPath": "preProcessing.Normalization",
+        "description": "preProcessing.Normalization",
+        "peekOfCode": "def normalize_beats(beats):\n    normalized = []\n    for beat in beats:\n        max_abs = np.max(np.abs(beat)) + 1e-8\n        norm_beat = beat / max_abs\n        normalized.append(norm_beat)\n    return np.array(normalized)",
+        "detail": "preProcessing.Normalization",
+        "documentation": {}
+    },
+    {
+        "label": "extract_heartbeats",
+        "kind": 2,
+        "importPath": "preProcessing.Segment",
+        "description": "preProcessing.Segment",
+        "peekOfCode": "def extract_heartbeats(signal, fs, annotation_rpeaks=None, before=0.25, after=0.4, fixed_length=250):\n    \"\"\"\n    Extract fixed-length heartbeats centered at R-peaks\n    Args:\n        signal: ECG signal\n        fs: Sampling frequency (Hz)\n        annotation_rpeaks: Optional pre-annotated R-peaks\n        before: Seconds before R-peak (default 0.25)\n        after: Seconds after R-peak (default 0.4)\n        fixed_length: Target samples per beat (default 250)",
+        "detail": "preProcessing.Segment",
+        "documentation": {}
+    },
+    {
+        "label": "pan_tompkins_rpeak_detection",
+        "kind": 2,
+        "importPath": "preProcessing.Segment",
+        "description": "preProcessing.Segment",
+        "peekOfCode": "def pan_tompkins_rpeak_detection(signal, fs):\n    \"\"\"\n    Pan-Tompkins algorithm to detect R-peaks in ECG signal.\n    Args:\n        signal: preprocessed ECG signal (1D numpy array)\n        fs: sampling frequency in Hz\n    Returns:\n        rpeaks: numpy array of detected R-peak sample indices\n    \"\"\"\n    # 1. Derivative filter (5-point derivative)",
+        "detail": "preProcessing.Segment",
+        "documentation": {}
+    },
+    {
+        "label": "delta_modulation",
+        "kind": 2,
+        "importPath": "snnModel.DeltaModulation",
+        "description": "snnModel.DeltaModulation",
+        "peekOfCode": "def delta_modulation(beats, threshold=0.1):\n    return np.array([spikegen.delta(torch.tensor(beat), threshold=threshold, off_spike=True).numpy() for beat in beats])\n# off_spike=True means spikes are generated for both positive and negative changes (i.e., when the signal goes up or down).",
+        "detail": "snnModel.DeltaModulation",
+        "documentation": {}
+    },
+    {
+        "label": "evaluate_model",
+        "kind": 2,
+        "importPath": "snnModel.Evaluate",
+        "description": "snnModel.Evaluate",
+        "peekOfCode": "def evaluate_model(model, X_val, y_val, X_test, y_test, device='cuda'):\n    def compute_metrics(X, y, dataset_name):\n        X_tensor = torch.FloatTensor(X).to(device)\n        y_tensor = torch.LongTensor(y).to(device)\n        model.eval()\n        with torch.no_grad():\n            outputs = model(X_tensor)\n            loss = nn.CrossEntropyLoss()(outputs, y_tensor).item()\n            _, predicted = torch.max(outputs, 1)\n            y_np = y_tensor.cpu().numpy()",
+        "detail": "snnModel.Evaluate",
+        "documentation": {}
+    },
+    {
+        "label": "plot_metrics",
+        "kind": 2,
+        "importPath": "snnModel.Evaluate",
+        "description": "snnModel.Evaluate",
+        "peekOfCode": "def plot_metrics(history):\n    plt.figure(figsize=(12, 8))\n    plt.subplot(2, 1, 1)\n    plt.plot(history['train_loss'], label='Train Loss', color='#1f77b4')\n    plt.plot(history['val_loss'], label='Validation Loss', color='#ff7f0e')\n    plt.plot(history['test_loss'], label='Test Loss', color='#2ca02c')\n    plt.xlabel('Epoch')\n    plt.ylabel('Loss')\n    plt.title('Training, Validation, and Test Loss')\n    plt.legend()",
+        "detail": "snnModel.Evaluate",
+        "documentation": {}
+    },
+    {
+        "label": "process_record",
+        "kind": 2,
+        "importPath": "snnModel.MainPipeline",
+        "description": "snnModel.MainPipeline",
+        "peekOfCode": "def process_record(record_id, data_dir, balance=True):\n    signal, rpeaks, fs, ann = load_ecg(record_id, data_dir)\n    print(f\"Total annotations: {len(ann.sample)}\")\n    signal = bandpass_filter(signal, fs)\n    signal = notch_filter(signal, fs)\n    signal = remove_baseline(signal, fs)\n    beats, valid_rpeaks = extract_heartbeats(signal, fs, ann.sample)\n    print(f\"Extracted {len(beats)} valid beats\")\n    beats = normalize_beats(beats)\n    labels = create_labels(valid_rpeaks, ann)",
+        "detail": "snnModel.MainPipeline",
+        "documentation": {}
+    },
+    {
+        "label": "load_dataset",
+        "kind": 2,
+        "importPath": "snnModel.MainPipeline",
+        "description": "snnModel.MainPipeline",
+        "peekOfCode": "def load_dataset(record_ids, data_dir, balance_training=False):\n    all_beats = []\n    all_labels = []\n    for record_id in record_ids:\n        X, y = process_record(str(record_id), data_dir)\n        if X.shape[0] > 0:\n            all_beats.append(X)\n            all_labels.append(y)\n        else:\n            print(f\"Skipping record {record_id} due to processing issues or no valid beats.\")",
+        "detail": "snnModel.MainPipeline",
+        "documentation": {}
+    },
+    {
+        "label": "process_record",
+        "kind": 2,
+        "importPath": "snnModel.MainPipelineWithWeightedLoss",
+        "description": "snnModel.MainPipelineWithWeightedLoss",
+        "peekOfCode": "def process_record(record_id, data_dir, balance=True):\n    signal, rpeaks, fs, ann = load_ecg(record_id, data_dir)\n    print(f\"Total annotations: {len(ann.sample)}\")\n    signal = bandpass_filter(signal, fs)\n    signal = notch_filter(signal, fs)\n    signal = remove_baseline(signal, fs)\n    beats, valid_rpeaks = extract_heartbeats(signal, fs, ann.sample)\n    print(f\"Extracted {len(beats)} valid beats\")\n    beats = normalize_beats(beats)\n    beats_spikes = delta_modulation(beats)",
+        "detail": "snnModel.MainPipelineWithWeightedLoss",
+        "documentation": {}
+    },
+    {
+        "label": "load_dataset",
+        "kind": 2,
+        "importPath": "snnModel.MainPipelineWithWeightedLoss",
+        "description": "snnModel.MainPipelineWithWeightedLoss",
+        "peekOfCode": "def load_dataset(record_ids, data_dir):\n    all_beats = []\n    all_labels = []\n    for record_id in record_ids:\n        X, y = process_record(str(record_id), data_dir)\n        if X.shape[0] > 0:\n            all_beats.append(X)\n            all_labels.append(y)\n        else:\n            print(f\"Skipping record {record_id} due to processing issues or no valid beats.\")",
+        "detail": "snnModel.MainPipelineWithWeightedLoss",
+        "documentation": {}
+    },
+    {
+        "label": "SNN",
+        "kind": 6,
+        "importPath": "snnModel.SnnModel",
+        "description": "snnModel.SnnModel",
+        "peekOfCode": "class SNN(nn.Module):\n    def __init__(self, num_inputs=250, num_hidden=128, num_outputs=5, num_steps=25, beta=0.9):\n        super().__init__()\n        self.num_steps = num_steps\n        spike_grad = surrogate.fast_sigmoid(slope=25)\n        self.fc1 = nn.Linear(num_inputs, num_hidden)\n        self.lif1 = snn.Leaky(beta=beta, spike_grad=spike_grad)\n        self.fc2 = nn.Linear(num_hidden, num_outputs)\n        self.lif2 = snn.Leaky(beta=beta, spike_grad=spike_grad)\n    def forward(self, x):",
+        "detail": "snnModel.SnnModel",
+        "documentation": {}
+    },
+    {
+        "label": "train_model",
+        "kind": 2,
+        "importPath": "snnModel.Train",
+        "description": "snnModel.Train",
+        "peekOfCode": "def train_model(X_train, y_train, X_val, y_val, X_test, y_test, batch_size=64, num_epochs=10, device='cuda', class_weights=None):\n    model = SNN(num_inputs=X_train.shape[1], num_outputs=5).to(device)\n    criterion = nn.CrossEntropyLoss()\n    optimizer = torch.optim.Adam(model.parameters(), lr=0.001)\n    X_train_tensor = torch.FloatTensor(X_train).to(device)\n    y_train_tensor = torch.LongTensor(y_train).to(device)\n    X_val_tensor = torch.FloatTensor(X_val).to(device)\n    y_val_tensor = torch.LongTensor(y_val).to(device)\n    X_test_tensor = torch.FloatTensor(X_test).to(device)\n    y_test_tensor = torch.LongTensor(y_test).to(device)",
+        "detail": "snnModel.Train",
+        "documentation": {}
+    }
+]
