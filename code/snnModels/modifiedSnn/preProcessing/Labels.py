@@ -23,8 +23,8 @@ def get_class_from_symbol(symbol):
     for class_idx, symbols in AAMI_classes.items():
         if symbol in symbols:
             return class_idx
-    # If symbol not found in any class, consider it normal (class 0)
-    return 0
+    # If symbol not found in any class, consider it belongs to unknown
+    return 4
 
 def create_labels(rpeaks, annotation):
     """

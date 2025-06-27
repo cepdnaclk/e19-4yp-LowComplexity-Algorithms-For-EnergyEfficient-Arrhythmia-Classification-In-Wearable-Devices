@@ -8,7 +8,7 @@ import neurokit2 as nk
 import numpy as np
 from scipy.signal import find_peaks
 
-def extract_heartbeats(signal, fs, annotation_rpeaks=None, before=0.25, after=0.4, fixed_length=250):
+def extract_heartbeats(signal, fs, annotation_rpeaks=None, before=0.25, after=0.4, fixed_length=300):
     """
     Extract fixed-length heartbeats centered at R-peaks
     
@@ -43,6 +43,8 @@ def extract_heartbeats(signal, fs, annotation_rpeaks=None, before=0.25, after=0.
         center = int(peak)
         start = center - fixed_length//2
         end = center + fixed_length//2
+        # start = center - 210
+        # end = center + 90
         
         # Handle edge cases
         if start < 0:
