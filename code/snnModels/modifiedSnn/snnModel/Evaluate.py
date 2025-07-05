@@ -1,9 +1,10 @@
-# Evaluation Function
+import numpy as np
 import torch 
 import torch.nn as nn
 import matplotlib.pyplot as plt
 from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score, confusion_matrix
 import seaborn as sns
+from torch.utils.data import DataLoader, TensorDataset
 
 def evaluate_model(model, X_val, y_val, X_test, y_test, device='cuda'):
     def compute_metrics(X, y, dataset_name):
@@ -44,25 +45,71 @@ def evaluate_model(model, X_val, y_val, X_test, y_test, device='cuda'):
     compute_metrics(X_val, y_val, 'Validation')
     compute_metrics(X_test, y_test, 'Test')
 
-# Plot Metrics
+def evaluate_model_epochs(model, X_test, y_test, num_epochs=10, device='cuda'):
+    X_test_tensor = torch.FloatTensor(X_test).to(device)
+    y_test_tensor = torch.LongTensor(y_test).to(device)
+    test_dataset = TensorDataset(X_test_tensor, y_test_tensor)
+    test_loader = DataLoader(test_dataset, batch_size=64, shuffle=False)
+
+    history = {
+        'test_loss': [],
+        'test_acc': []
+    }
+
+    print("Testing phase...")
+    for epoch in range(num_epochs):
+        model.eval()
+        running_test_loss = 0
+        correct_test = 0
+        total_test = 0
+        with torch.no_grad():
+            for inputs, labels in test_loader:
+                outputs = model(inputs)
+                loss = nn.CrossEntropyLoss()(outputs, labels)
+                running_test_loss += loss.item() * inputs.size(0)
+                _, predicted = torch.max(outputs, 1)
+                total_test += labels.size(0)
+                correct_test += (predicted == labels).sum().item()
+
+        test_loss = running_test_loss / total_test
+        test_acc = correct_test / total_test
+        history['test_loss'].append(test_loss)
+        history['test_acc'].append(test_acc)
+        print(f"Test Epoch {epoch+1}/{num_epochs}, Test Loss: {test_loss:.4f}, Test Acc: {test_acc:.4f}")
+
+    # Compute average metrics
+    avg_test_loss = np.mean(history['test_loss'])
+    avg_test_acc = np.mean(history['test_acc'])
+    print(f"\nAverage Test Metrics over {num_epochs} epochs:")
+    print(f"  Average Test Loss: {avg_test_loss:.4f}")
+    print(f"  Average Test Accuracy: {avg_test_acc:.4f}")
+
+    return history
+
 def plot_metrics(history):
     plt.figure(figsize=(12, 8))
     plt.subplot(2, 1, 1)
-    plt.plot(history['train_loss'], label='Train Loss', color='#1f77b4')
-    plt.plot(history['val_loss'], label='Validation Loss', color='#ff7f0e')
-    plt.plot(history['test_loss'], label='Test Loss', color='#2ca02c')
+    if 'train_loss' in history:
+        plt.plot(history['train_loss'], label='Train Loss', color='#1f77b4')
+    if 'val_loss' in history:
+        plt.plot(history['val_loss'], label='Validation Loss', color='#ff7f0e')
+    if 'test_loss' in history:
+        plt.plot(history['test_loss'], label='Test Loss', color='#2ca02c')
     plt.xlabel('Epoch')
     plt.ylabel('Loss')
-    plt.title('Training, Validation, and Test Loss')
+    plt.title('Loss Curves')
     plt.legend()
 
     plt.subplot(2, 1, 2)
-    plt.plot(history['train_acc'], label='Train Accuracy', color='#1f77b4')
-    plt.plot(history['val_acc'], label='Validation Accuracy', color='#ff7f0e')
-    plt.plot(history['test_acc'], label='Test Accuracy', color='#2ca02c')
+    if 'train_acc' in history:
+        plt.plot(history['train_acc'], label='Train Accuracy', color='#1f77b4')
+    if 'val_acc' in history:
+        plt.plot(history['val_acc'], label='Validation Accuracy', color='#ff7f0e')
+    if 'test_acc' in history:
+        plt.plot(history['test_acc'], label='Test Accuracy', color='#2ca02c')
     plt.xlabel('Epoch')
     plt.ylabel('Accuracy')
-    plt.title('Training, Validation, and Test Accuracy')
+    plt.title('Accuracy Curves')
     plt.legend()
 
     plt.tight_layout()

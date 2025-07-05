@@ -23,3 +23,4 @@ def remove_baseline(signal, fs, window_size=0.2):
     window_samples = int(window_size * fs)
     baseline = np.convolve(signal, np.ones(window_samples)/window_samples, mode='same')
     return signal - baseline
+
