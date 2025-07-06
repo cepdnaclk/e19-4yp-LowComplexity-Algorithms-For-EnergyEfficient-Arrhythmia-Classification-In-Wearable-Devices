@@ -4,22 +4,24 @@ from scipy.signal import find_peaks
 import matplotlib.pyplot as plt
 import os
 
-def extract_heartbeats(signal, fs, annotation_rpeaks=None, before=0.25, after=0.4, fixed_length=300, plot_dir='plots'):
+def extract_heartbeats(signal, fs, annotation_rpeaks=None, annotation=None, before=0.25, after=0.4, fixed_length=250, plot_dir='ecgPlots'):
     """
-    Extract segments including previous, current, and next heartbeats centered at R-peaks using a sliding window.
+    Extract segments including previous, current, and next heartbeats centered at R-peaks using a sliding window
+    for all valid beats in the record.
 
     Args:
         signal: ECG signal
         fs: Sampling frequency (Hz)
         annotation_rpeaks: Optional pre-annotated R-peaks
+        annotation: Annotation object with .sample and .symbol arrays for labeling
         before: Seconds before R-peak for a single beat (default 0.25)
         after: Seconds after R-peak for a single beat (default 0.4)
-        fixed_length: Target samples per beat (default 300)
-        plot_dir: Directory to save segment plots (default 'plots')
+        fixed_length: Target samples per beat (default 250)
+        plot_dir: Directory to save segment plots (default 'plots/ecgPlots')
 
     Returns:
         segments: Array of fixed-length segments, each including previous, current, and next beats (n_segments, fixed_length*3)
-        valid_rpeaks: Array of used R-peak positions
+        valid_rpeaks: Array of used R-peak positions (middle beats)
     """
     # Clean signal and detect R-peaks using neurokit2
     cleaned = nk.ecg_clean(signal, sampling_rate=fs)
@@ -27,7 +29,9 @@ def extract_heartbeats(signal, fs, annotation_rpeaks=None, before=0.25, after=0.
              nk.ecg_findpeaks(cleaned, sampling_rate=fs)['ECG_R_Peaks']
 
     # Ensure plot directory exists
+    print(f"Creating directory: {plot_dir}")
     os.makedirs(plot_dir, exist_ok=True)
+    print(f"Directory {plot_dir} is ready or already exists")
 
     segments = []
     valid_rpeaks = []
@@ -36,21 +40,22 @@ def extract_heartbeats(signal, fs, annotation_rpeaks=None, before=0.25, after=0.
     samples_before = int(before * fs)
     samples_after = int(after * fs)
     single_beat_length = samples_before + samples_after
-    total_length = fixed_length * 3  # Three beats per segment
+    total_length = fixed_length * 3  # Three beats per segment (750 samples)
 
     for i, peak in enumerate(rpeaks):
-        # Skip first and last beats if no previous or next beat exists
-        if i == 0 or i == len(rpeaks) - 1:
+        # Skip first R-peak if no previous beat, but include last if next beat is available
+        if i == 0 and len(rpeaks) > 1:
             continue
+        if i == len(rpeaks) - 1 and len(rpeaks) > 1:
+            break
 
         # Calculate midpoints for sliding window
         prev_mid = (rpeaks[i-1] + peak) // 2 if i > 0 else peak - single_beat_length
         next_mid = (peak + rpeaks[i+1]) // 2 if i < len(rpeaks) - 1 else peak + single_beat_length
-        prev_start = (rpeaks[i-2] + rpeaks[i-1]) // 2 if i > 1 else peak - 2 * single_beat_length
 
         # Define segment boundaries
-        start = prev_start
-        end = next_mid
+        start = prev_mid - single_beat_length if i > 0 else peak - 2 * single_beat_length
+        end = next_mid + single_beat_length if i < len(rpeaks) - 1 else peak + 2 * single_beat_length
 
         # Handle edge cases
         if start < 0:
@@ -61,7 +66,7 @@ def extract_heartbeats(signal, fs, annotation_rpeaks=None, before=0.25, after=0.
         # Extract segment
         segment = signal[start:end]
 
-        # Pad or trim to fixed length
+        # Pad or trim to fixed length (750 samples)
         if len(segment) < total_length:
             segment = np.pad(segment, (0, total_length - len(segment)), mode='constant')
         elif len(segment) > total_length:
@@ -70,14 +75,22 @@ def extract_heartbeats(signal, fs, annotation_rpeaks=None, before=0.25, after=0.
         segments.append(segment)
         valid_rpeaks.append(peak)
 
-        # Plot segment
-        plot_segment(signal, start, end, peak, rpeaks[i-1] if i > 0 else None, rpeaks[i+1] if i < len(rpeaks) - 1 else None, fs, i, plot_dir)
+        # Plot specific segments (first, 1001st, and every 1000th thereafter)
+        if annotation is not None:
+            segment_idx = len(segments) - 1
+            if segment_idx == 0 or segment_idx == 1000 or (segment_idx - 1000) % 1000 == 0:
+                print(f"Preparing to plot segment {segment_idx}")
+                idx = np.argmin(np.abs(annotation.sample - peak))
+                symbol = annotation.symbol[idx]
+                print(f"Plotting segment {segment_idx} with annotation {symbol}")
+                plot_segment(signal, start, end, peak, rpeaks[i-1] if i > 0 else None, rpeaks[i+1] if i < len(rpeaks) - 1 else None, fs, segment_idx, plot_dir, symbol)
 
+    print(f"Total segments created: {len(segments)}")
     return np.array(segments), np.array(valid_rpeaks)
 
-def plot_segment(signal, start, end, current_rpeak, prev_rpeak, next_rpeak, fs, segment_idx, plot_dir):
+def plot_segment(signal, start, end, current_rpeak, prev_rpeak, next_rpeak, fs, segment_idx, plot_dir, annotation_symbol):
     """
-    Plot a single ECG segment with marked R-peaks.
+    Plot a single ECG segment with marked R-peaks and annotation.
 
     Args:
         signal: Full ECG signal
@@ -89,6 +102,7 @@ def plot_segment(signal, start, end, current_rpeak, prev_rpeak, next_rpeak, fs, 
         fs: Sampling frequency (Hz)
         segment_idx: Index of the segment for naming
         plot_dir: Directory to save the plot
+        annotation_symbol: Annotation symbol for the current beat
     """
     plt.figure(figsize=(10, 4))
     time = np.arange(start, end) / fs
@@ -106,11 +120,14 @@ def plot_segment(signal, start, end, current_rpeak, prev_rpeak, next_rpeak, fs, 
 
     plt.xlabel('Time (s)')
     plt.ylabel('Amplitude')
-    plt.title(f'Segment {segment_idx}: Previous, Current, and Next Beats')
+    plt.title(f'Segment {segment_idx}: Previous, Current, and Next Beats (Annotation: {annotation_symbol})')
     plt.legend()
     plt.grid(True)
-    plt.savefig(os.path.join(plot_dir, f'segment_{segment_idx}.png'))
+    filepath = os.path.join(plot_dir, f'segment_{segment_idx}.png')
+    print(f"Saving plot to: {filepath}")
+    plt.savefig(filepath)
     plt.close()
+    print(f"Plot saved to: {filepath}")
 
 def pan_tompkins_rpeak_detection(signal, fs):
     """
