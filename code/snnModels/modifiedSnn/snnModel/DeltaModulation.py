@@ -1,13 +1,15 @@
-# Delta Modulation Function -> generete spikes
-# Delta Modulation (DM) is a signal encoding technique that converts 
-# an analog signal into a digital pulse stream by encoding the difference 
-# between successive samples rather than the absolute sample values. 
+# DeltaModulation.py
+import numpy as np
 
-import numpy as np 
-import torch 
-from snntorch import spikegen
-
-def delta_modulation(beats, threshold=0.01):
-    return np.array([spikegen.delta(torch.tensor(beat), threshold=threshold, off_spike=True).numpy() for beat in beats])
-
-# off_spike=True means spikes are generated for both positive and negative changes (i.e., when the signal goes up or down).
+def delta_modulation(beats, threshold=0.1, decay=0.9):
+    spikes = np.zeros_like(beats, dtype=float)
+    prev_spike = np.zeros(beats.shape[1])
+    for i in range(beats.shape[0]):
+        for j in range(beats.shape[1]):
+            diff = beats[i, j] - prev_spike[j]
+            if diff > threshold:
+                spikes[i, j] = 1.0
+            elif diff < -threshold:
+                spikes[i, j] = -1.0
+            prev_spike[j] = decay * prev_spike[j] + (1 - decay) * beats[i, j]
+    return spikes

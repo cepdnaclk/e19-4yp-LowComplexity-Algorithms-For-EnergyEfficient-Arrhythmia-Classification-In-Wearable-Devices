@@ -4,7 +4,7 @@ from scipy.signal import find_peaks
 import matplotlib.pyplot as plt
 import os
 
-def extract_heartbeats(signal, fs, annotation_rpeaks=None, annotation=None, before=0.25, after=0.4, fixed_length=250, plot_dir='ecgPlots'):
+def extract_heartbeats(signal, fs, annotation_rpeaks=None, annotation=None, before=0.25, after=0.4, fixed_length=250, plot_dir='preProcessing/plots'):
     """
     Extract segments including previous, current, and next heartbeats centered at R-peaks using a sliding window
     for all valid beats in the record.
@@ -17,7 +17,7 @@ def extract_heartbeats(signal, fs, annotation_rpeaks=None, annotation=None, befo
         before: Seconds before R-peak for a single beat (default 0.25)
         after: Seconds after R-peak for a single beat (default 0.4)
         fixed_length: Target samples per beat (default 250)
-        plot_dir: Directory to save segment plots (default 'plots/ecgPlots')
+        plot_dir: Directory to save segment plots (default 'preProcessing/plots')
 
     Returns:
         segments: Array of fixed-length segments, each including previous, current, and next beats (n_segments, fixed_length*3)
@@ -29,9 +29,12 @@ def extract_heartbeats(signal, fs, annotation_rpeaks=None, annotation=None, befo
              nk.ecg_findpeaks(cleaned, sampling_rate=fs)['ECG_R_Peaks']
 
     # Ensure plot directory exists
-    print(f"Creating directory: {plot_dir}")
-    os.makedirs(plot_dir, exist_ok=True)
-    print(f"Directory {plot_dir} is ready or already exists")
+    print(f"Attempting to create directory: {plot_dir}")
+    try:
+        os.makedirs(plot_dir, exist_ok=True)
+        print(f"Directory {plot_dir} created or already exists")
+    except OSError as e:
+        print(f"Failed to create directory {plot_dir}: {e}")
 
     segments = []
     valid_rpeaks = []
@@ -75,15 +78,15 @@ def extract_heartbeats(signal, fs, annotation_rpeaks=None, annotation=None, befo
         segments.append(segment)
         valid_rpeaks.append(peak)
 
-        # Plot specific segments (first, 1001st, and every 1000th thereafter)
-        if annotation is not None:
-            segment_idx = len(segments) - 1
-            if segment_idx == 0 or segment_idx == 1000 or (segment_idx - 1000) % 1000 == 0:
-                print(f"Preparing to plot segment {segment_idx}")
-                idx = np.argmin(np.abs(annotation.sample - peak))
-                symbol = annotation.symbol[idx]
-                print(f"Plotting segment {segment_idx} with annotation {symbol}")
-                plot_segment(signal, start, end, peak, rpeaks[i-1] if i > 0 else None, rpeaks[i+1] if i < len(rpeaks) - 1 else None, fs, segment_idx, plot_dir, symbol)
+        # Plot every 1000th segment (starting from the first)
+        segment_idx = len(segments) - 1
+        if annotation is not None and (segment_idx == 0 or segment_idx % 1000 == 0):
+            print(f"Annotation check passed for segment {segment_idx}")
+            print(f"Current peak: {peak}, Annotation samples: {annotation.sample if annotation is not None else 'None'}")
+            idx = np.argmin(np.abs(annotation.sample - peak))
+            symbol = annotation.symbol[idx]
+            print(f"Preparing to plot segment {segment_idx} with annotation: {symbol}")
+            plot_segment(signal, start, end, peak, rpeaks[i-1], rpeaks[i+1], fs, segment_idx, plot_dir, symbol)
 
     print(f"Total segments created: {len(segments)}")
     return np.array(segments), np.array(valid_rpeaks)
@@ -124,10 +127,13 @@ def plot_segment(signal, start, end, current_rpeak, prev_rpeak, next_rpeak, fs, 
     plt.legend()
     plt.grid(True)
     filepath = os.path.join(plot_dir, f'segment_{segment_idx}.png')
-    print(f"Saving plot to: {filepath}")
-    plt.savefig(filepath)
+    print(f"Attempting to save plot to: {filepath}")
+    try:
+        plt.savefig(filepath, dpi=100, bbox_inches='tight')  # Added dpi and bbox_inches for better saving
+        print(f"Successfully saved plot to: {filepath}")
+    except Exception as e:
+        print(f"Failed to save plot to {filepath}: {e}")
     plt.close()
-    print(f"Plot saved to: {filepath}")
 
 def pan_tompkins_rpeak_detection(signal, fs):
     """
