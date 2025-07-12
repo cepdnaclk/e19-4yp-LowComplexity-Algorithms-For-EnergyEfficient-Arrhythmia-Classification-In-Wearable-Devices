@@ -1,4 +1,3 @@
-# Training Function
 from snnModel.SnnModel import SNN
 import torch 
 import torch.nn as nn
@@ -6,7 +5,7 @@ from torch.utils.data import DataLoader, TensorDataset
 import os
 from snnModel.Evaluate import plot_metrics
 
-def train_model(X_train, y_train, X_val, y_val, X_test, y_test, batch_size=64, num_epochs=10, device='cuda', class_weights=None):
+def train_model(X_train, y_train, X_val, y_val, batch_size=64, num_epochs=10, device='cuda', class_weights=None):
     model = SNN(num_inputs=X_train.shape[1], num_outputs=5).to(device)
     criterion = nn.CrossEntropyLoss()
     optimizer = torch.optim.Adam(model.parameters(), lr=0.001)
@@ -15,20 +14,15 @@ def train_model(X_train, y_train, X_val, y_val, X_test, y_test, batch_size=64, n
     y_train_tensor = torch.LongTensor(y_train).to(device)
     X_val_tensor = torch.FloatTensor(X_val).to(device)
     y_val_tensor = torch.LongTensor(y_val).to(device)
-    X_test_tensor = torch.FloatTensor(X_test).to(device)
-    y_test_tensor = torch.LongTensor(y_test).to(device)
 
     train_dataset = TensorDataset(X_train_tensor, y_train_tensor)
     train_loader = DataLoader(train_dataset, batch_size=batch_size, shuffle=True)
     val_dataset = TensorDataset(X_val_tensor, y_val_tensor)
     val_loader = DataLoader(val_dataset, batch_size=batch_size, shuffle=False)
-    test_dataset = TensorDataset(X_test_tensor, y_test_tensor)
-    test_loader = DataLoader(test_dataset, batch_size=batch_size, shuffle=False)
 
     history = {
         'train_loss': [], 'train_acc': [],
-        'val_loss': [], 'val_acc': [],
-        'test_loss': [], 'test_acc': []
+        'val_loss': [], 'val_acc': []
     }
     
     checkpoint_dir = 'checkpoints'
@@ -84,30 +78,6 @@ def train_model(X_train, y_train, X_val, y_val, X_test, y_test, batch_size=64, n
         history['val_loss'].append(val_loss)
         history['val_acc'].append(val_acc)
         print(f"Validation Epoch {epoch+1}/{num_epochs}, Val Loss: {val_loss:.4f}, Val Acc: {val_acc:.4f}")
-
-    print("\nEvaluating saved models on test set...")
-    for epoch, checkpoint_path in enumerate(checkpoint_paths):
-        model.load_state_dict(torch.load(checkpoint_path))
-        model.eval()
-        running_test_loss = 0
-        correct_test = 0
-        total_test = 0
-        with torch.no_grad():
-            for inputs, labels in test_loader:
-                outputs = model(inputs)
-                loss = criterion(outputs, labels)
-                running_test_loss += loss.item() * inputs.size(0)
-                _, predicted = torch.max(outputs, 1)
-                total_test += labels.size(0)
-                correct_test += (predicted == labels).sum().item()
-
-        test_loss = running_test_loss / total_test
-        test_acc = correct_test / total_test
-        history['test_loss'].append(test_loss)
-        history['test_acc'].append(test_acc)
-        print(f"Test Epoch {epoch+1}/{num_epochs}, Test Loss: {test_loss:.4f}, Test Acc: {test_acc:.4f}")
-
-    plot_metrics(history)
 
     for checkpoint_path in checkpoint_paths:
         os.remove(checkpoint_path)
