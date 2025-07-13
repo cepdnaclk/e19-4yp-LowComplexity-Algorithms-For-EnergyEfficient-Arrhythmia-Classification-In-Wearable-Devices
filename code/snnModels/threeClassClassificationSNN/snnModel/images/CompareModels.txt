@@ -1,0 +1,219 @@
+ ---------------Getting lengths of dataset-------------------
+
+Total number of training beats :  124900
+Total number of training labels :  124900
+Total number of validation beats :  13946
+Total number of validation labels :  13946
+Total number of test beats :  51188
+Total number of test labels :  51188
+
+** Test 1,2,3 --> Check denoising
+1) Test 1 ->  Normal run. Got 
+
+  Validation Metrics:
+  Loss: 4.3043
+  Accuracy: 0.7629
+  Precision: 0.3342
+  Recall: 0.3626
+  F1-Score: 0.3266
+
+  Test Metrics:
+  Loss: 2.0548
+  Accuracy: 0.8257
+  Precision: 0.3298
+  Recall: 0.4021
+  F1-Score: 0.3501
+
+
+2) Test 2 -> Only applied Band Pass filter. Got 
+
+  Validation Metrics:
+  Loss: 3.9218
+  Accuracy: 0.7323
+  Precision: 0.2609
+  Recall: 0.2808
+  F1-Score: 0.2681
+
+  Test Metrics:
+  Loss: 1.9027
+  Accuracy: 0.8122
+  Precision: 0.3199
+  Recall: 0.3880
+  F1-Score: 0.3384
+
+  3) Test 3 -> Applied Band Pass and Notch filter. Got 
+
+  Validation Metrics:
+  Loss: 4.8450
+  Accuracy: 0.7248
+  Precision: 0.2585
+  Recall: 0.2728
+  F1-Score: 0.2604
+
+  Test Metrics:
+  Loss: 1.8419
+  Accuracy: 0.8136
+  Precision: 0.3296
+  Recall: 0.3926
+  F1-Score: 0.3483
+
+** Test 4,5 --> Test Segmenting
+
+4) Test 4 -> Segmenting using Pantompkins algorithm library. Got  
+
+  Validation Metrics:
+  Loss: 4.3726
+  Accuracy: 0.7327
+  Precision: 0.3162
+  Recall: 0.2979
+  F1-Score: 0.2819
+
+  Test Metrics:
+  Loss: 2.0244
+  Accuracy: 0.8216
+  Precision: 0.3187
+  Recall: 0.3888
+  F1-Score: 0.3364
+
+5) Test 5 -> segmenting using NeuroKit2 library. Got
+
+  Validation Metrics:
+  Loss: 4.2245
+  Accuracy: 0.7475
+  Precision: 0.2853
+  Recall: 0.3149
+  F1-Score: 0.2912
+
+  Test Metrics:
+  Loss: 2.1010
+  Accuracy: 0.8063
+  Precision: 0.3132
+  Recall: 0.3996
+  F1-Score: 0.3294
+
+** Test 6,7,8,9,10,11 --> Test Normalization
+
+6) Test 6 -> Normalized by Beat wise Z score normalization. Got 
+
+  Validation Metrics:
+  Loss: 4.5130
+  Accuracy: 0.7457
+  Precision: 0.2905
+  Recall: 0.3130
+  F1-Score: 0.2906
+
+  Test Metrics:
+  Loss: 1.9687
+  Accuracy: 0.8360
+  Precision: 0.3305
+  Recall: 0.4092
+  F1-Score: 0.3454
+
+7) Test 7 -> Normalized by Min-Max normalization
+
+  Validation Metrics:
+  Loss: 1.3718
+  Accuracy: 0.7366
+  Precision: 0.3293
+  Recall: 0.3198
+  F1-Score: 0.3166
+
+  Test Metrics:
+  Loss: 1.2344
+  Accuracy: 0.7177
+  Precision: 0.3123
+  Recall: 0.3519
+  F1-Score: 0.3168
+
+  8) Test 8 -> Normalized by Median and Interquartile Range (Robust Scaling)
+
+  Validation Metrics:
+  Loss: 3.1292
+  Accuracy: 0.6816
+  Precision: 0.2761
+  Recall: 0.3056
+  F1-Score: 0.2823
+
+  Test Metrics:
+  Loss: 1.4843
+  Accuracy: 0.8470
+  Precision: 0.3657
+  Recall: 0.3869
+  F1-Score: 0.3748
+
+9) Test 9 -> Normalized by Global Z-Score Normalization
+
+  Validation Metrics:
+  Loss: 4.2494
+  Accuracy: 0.7369
+  Precision: 0.4014
+  Recall: 0.2885
+  F1-Score: 0.2937
+
+  Test Metrics:
+  Loss: 2.0596
+  Accuracy: 0.8065
+  Precision: 0.3174
+  Recall: 0.3942
+  F1-Score: 0.3354
+
+10) Test 10 -> Normalized by L2 Normalization (Unit Norm)
+
+  Validation Metrics:
+  Loss: 1.6009
+  Accuracy: 0.8265
+  Precision: 0.3258
+  Recall: 0.2581
+  F1-Score: 0.2461
+
+  Test Metrics:
+  Loss: 1.4737
+  Accuracy: 0.8871
+  Precision: 0.2849
+  Recall: 0.2512
+  F1-Score: 0.2413
+
+11) Test 11 -> Normalized by Max Absolute Scaling
+
+  Validation Metrics:
+  Loss: 1.6594
+  Accuracy: 0.7594
+  Precision: 0.3428
+  Recall: 0.3915
+  F1-Score: 0.3583
+
+  Test Metrics:
+  Loss: 0.8961
+  Accuracy: 0.7943
+  Precision: 0.3943
+  Recall: 0.4488
+  F1-Score: 0.4109
+
+  ** Max Absolute Scaling is elected coz 
+   -> It achieves the lowest loss, indicating better model fit.
+
+   -> It has the highest F1-score, precision, and recall, showing better balance
+      between false positives and false negatives.
+
+   -> Although Test 10 has the highest accuracy, its F1-score is significantly lower, 
+      indicating poorer performance on minority classes or imbalanced data.
+
+
+** Test 12 --> Test class balancing
+
+12) Test 12 -> Removed class balancing and added weighted Loss function to dataset. Got 
+
+  Validation Metrics:
+  Loss: 0.8203
+  Accuracy: 0.8400
+  Precision: 0.3510
+  Recall: 0.4039
+  F1-Score: 0.3741
+
+  Test Metrics:
+  Loss: 0.4305
+  Accuracy: 0.9108
+  Precision: 0.4055
+  Recall: 0.3886
+  F1-Score: 0.3924
+
