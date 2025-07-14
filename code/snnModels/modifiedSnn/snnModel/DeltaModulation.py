@@ -1,7 +1,7 @@
 # DeltaModulation.py
 import numpy as np
 
-def delta_modulation(beats, threshold=0.1, decay=0.9):
+def delta_modulation(beats, threshold=0.01, decay=0.9):
     spikes = np.zeros_like(beats, dtype=float)
     prev_spike = np.zeros(beats.shape[1])
     for i in range(beats.shape[0]):

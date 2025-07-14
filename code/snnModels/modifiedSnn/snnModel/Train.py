@@ -1,14 +1,14 @@
-from snnModel.SnnModel import SNN
 import torch
 import torch.nn as nn
 from torch.utils.data import DataLoader, TensorDataset
 import os
 from snnModel.Evaluate import plot_metrics
 from sklearn.metrics import f1_score
+from snnModel.SnnModel import SNN
 
 def train_model(X_train, y_train, X_val, y_val, batch_size=64, num_epochs=10, device='cuda', class_weights=None):
     print(f"X_train shape: {X_train.shape}, X_val shape: {X_val.shape}")
-    model = SNN(num_inputs=X_train.shape[1], num_outputs=5).to(device)
+    model = SNN(num_inputs=300, num_outputs=2).to(device)  # Changed num_inputs to 300
     criterion = nn.CrossEntropyLoss(weight=class_weights) if class_weights is not None else nn.CrossEntropyLoss()
     optimizer = torch.optim.Adam(model.parameters(), lr=0.001)
     scheduler = torch.optim.lr_scheduler.ReduceLROnPlateau(optimizer, mode='min', factor=0.5, patience=1)
@@ -42,7 +42,7 @@ def train_model(X_train, y_train, X_val, y_val, batch_size=64, num_epochs=10, de
             outputs = model(inputs)
             loss = criterion(outputs, labels)
             loss.backward()
-            torch.nn.utils.clip_grad_norm_(model.parameters(), max_norm=1.0)  # Gradient clipping
+            torch.nn.utils.clip_grad_norm_(model.parameters(), max_norm=1.0)
             optimizer.step()
             running_train_loss += loss.item() * inputs.size(0)
             _, predicted = torch.max(outputs, 1)
@@ -53,7 +53,7 @@ def train_model(X_train, y_train, X_val, y_val, batch_size=64, num_epochs=10, de
 
         train_loss = running_train_loss / total_train
         train_acc = correct_train / total_train
-        train_f1 = f1_score(all_train_labels, all_train_preds, average='weighted')
+        train_f1 = f1_score(all_train_labels, all_train_preds, average='binary')
         history['train_loss'].append(train_loss)
         history['train_acc'].append(train_acc)
         history['train_f1'].append(train_f1)
@@ -85,7 +85,7 @@ def train_model(X_train, y_train, X_val, y_val, batch_size=64, num_epochs=10, de
 
         val_loss = running_val_loss / total_val
         val_acc = correct_val / total_val
-        val_f1 = f1_score(all_val_labels, all_val_preds, average='weighted')
+        val_f1 = f1_score(all_val_labels, all_val_preds, average='binary')
         history['val_loss'].append(val_loss)
         history['val_acc'].append(val_acc)
         history['val_f1'].append(val_f1)

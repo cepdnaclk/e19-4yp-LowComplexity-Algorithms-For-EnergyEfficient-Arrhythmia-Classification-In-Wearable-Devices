@@ -1,5 +1,3 @@
-# SNN Model for 5-Class Classification
-
 import torch.nn as nn
 import snntorch as snn
 from snntorch import surrogate
@@ -7,7 +5,7 @@ import torch
 import warnings
 
 class SNN(nn.Module):
-    def __init__(self, num_inputs=750, num_hidden=[256, 512, 512, 256, 128], num_outputs=5, num_steps=10, beta=0.85, dropout_rate=0.5):
+    def __init__(self, num_inputs=750, num_hidden=[256, 512, 512, 256, 128], num_outputs=2, num_steps=10, beta=0.9, dropout_rate=0.1):
         super().__init__()
         self.num_steps = num_steps
         spike_grad = surrogate.fast_sigmoid(slope=25)
@@ -50,18 +48,22 @@ class SNN(nn.Module):
     def forward(self, x):
         batch_size = x.size(0)
         if x.dim() == 2:
-            if x.size(1) == 750:
-                x = x.view(batch_size, self.num_steps, 75)  # Adjust to 10 steps of 75
+            if x.size(1) == 300:
+                x = x.view(batch_size, self.num_steps, 30)  # Reshape (batch_size, 300) to (batch_size, 10, 30)
+                #print(f"Reshaped input from (batch_size, 300) to (batch_size, {self.num_steps}, 30)")
+            elif x.size(1) == 750:
+                x = x.view(batch_size, self.num_steps, 75)  # Original handling for 750
                 #print(f"Reshaped input from (batch_size, 750) to (batch_size, {self.num_steps}, 75)")
             elif x.size(1) == 250:
-                x = x.unsqueeze(1).repeat(1, self.num_steps, 1) // (self.num_steps / 3.33)  # Adjust for 10 steps
+                x = x.unsqueeze(1).repeat(1, self.num_steps, 1) // (self.num_steps / 3.33)  # Original handling for 250
                 warnings.warn(f"Input shape (batch_size, 250) detected. Adjusted to (batch_size, {self.num_steps}, 75) for compatibility.")
             else:
-                raise ValueError(f"Unsupported input size {x.size(1)}. Expected 250 or 750.")
-        elif x.dim() == 3 and x.size(2) == 75 and x.size(1) == self.num_steps:
-            print(f"Input already shaped as (batch_size, {self.num_steps}, 75)")
-        else:
-            raise ValueError(f"Unsupported input shape {x.shape}. Expected (batch_size, 750) or (batch_size, 10, 75).")
+                raise ValueError(f"Unsupported input size {x.size(1)}. Expected 250, 300, or 750.")
+        elif x.dim() == 3:
+            if x.size(1) == self.num_steps and x.size(2) in [30, 75]:
+                print(f"Input already shaped as (batch_size, {self.num_steps}, {x.size(2)})")
+            else:
+                raise ValueError(f"Unsupported input shape {x.shape}. Expected (batch_size, 10, 30) or (batch_size, 10, 75).")
 
         mems = [layer.init_leaky() for layer in self.network if isinstance(layer, snn.Leaky)]
         spk_rec = []
@@ -90,11 +92,3 @@ class SNN(nn.Module):
 class ResidualAdd(nn.Module):
     def forward(self, x):
         return x
-
-if __name__ == "__main__":
-    from torchsummary import summary
-    import torch
-
-    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-    model = SNN(num_inputs=750, num_outputs=5).to(device)
-    summary(model, input_size=(750,), device=str(device))
