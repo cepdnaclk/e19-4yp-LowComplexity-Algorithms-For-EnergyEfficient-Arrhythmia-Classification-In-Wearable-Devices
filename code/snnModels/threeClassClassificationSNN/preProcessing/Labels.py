@@ -12,7 +12,7 @@ import numpy as np
 
 AAMI_classes = {
     0: ['N', 'L', 'R', 'e', 'j'],      
-    1: ['A', 'a', 'J', 'S', 'e', 'j', 'V', 'E', 'F'],          
+    1: ['A', 'a', 'J', 'S', 'V', 'E', 'F'],          
     2: ['F', 'P', '/', 'f', 'u']          
 }
 
@@ -46,4 +46,3 @@ def create_labels(rpeaks, annotation):
         labels.append(class_idx)
     
     return np.array(labels)
-

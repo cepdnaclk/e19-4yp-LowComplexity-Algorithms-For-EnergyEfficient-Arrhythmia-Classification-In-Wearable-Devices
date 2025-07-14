@@ -77,8 +77,3 @@ def normalize_beats(beats):
         norm_beat = beat / max_abs
         normalized.append(norm_beat)
     return np.array(normalized)
-
-
-
-# Below code is for test Normalization
-
