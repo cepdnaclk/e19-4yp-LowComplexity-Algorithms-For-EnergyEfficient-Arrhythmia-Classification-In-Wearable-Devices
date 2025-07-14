@@ -6,7 +6,7 @@ from snntorch import surrogate
 import torch 
 
 class SNN(nn.Module):
-    def __init__(self, num_inputs=250, num_hidden=128, num_outputs=5, num_steps=10, beta=0.9):
+    def __init__(self, num_inputs=250, num_hidden=128, num_outputs=3, num_steps=10, beta=0.9):
         super().__init__()
         self.num_steps = num_steps
         spike_grad = surrogate.fast_sigmoid(slope=25)
