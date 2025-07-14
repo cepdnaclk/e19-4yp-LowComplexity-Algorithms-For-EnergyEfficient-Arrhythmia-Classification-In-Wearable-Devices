@@ -72,9 +72,13 @@ def normalize_beats_l2_normalization(beats):
 # Scales each beat by dividing by its maximum absolute value, so the values lie in [-1, 1].
 def normalize_beats(beats):
     normalized = []
-    for beat in beats:
+    for beat in beats:  
         max_abs = np.max(np.abs(beat)) + 1e-8
         norm_beat = beat / max_abs
         normalized.append(norm_beat)
     return np.array(normalized)
+
+
+
+# Below code is for test Normalization
 
