@@ -1,0 +1,94 @@
+1) Test 1 -> normal run
+
+Validation Metrics:
+  Loss: 0.0447
+  Accuracy: 0.9861
+  Precision: 0.9861
+  Recall: 0.9861
+  F1-Score: 0.9861
+  Confusion Matrix:
+[[40595   765   187]
+ [  484 41006    57]
+ [  135   101 41311]]
+
+Test Metrics:
+  Loss: 0.8980
+  Accuracy: 0.8046
+  Precision: 0.5580
+  Recall: 0.6350
+  F1-Score: 0.5861
+  Confusion Matrix:
+[[37656  5784   798]
+ [ 2526  2671   248]
+ [  286   352   823]]
+
+ 2) Test 2 -> 80% 20% 
+
+ ---------------Class distribution before splitting--------------------
+Class 0 (Normal): 90327 samples
+Class 1 (SVEB/VEB): 10753 samples
+Class 2 (Fusion/Paced/Other): 4834 samples
+
+---------------Class distribution after splitting--------------------
+Training set:
+Class 0 (Normal): 72261 samples
+Class 1 (SVEB/VEB): 8602 samples
+Class 2 (Fusion/Paced/Other): 3867 samples
+Test set:
+Class 0 (Normal): 18066 samples
+Class 1 (SVEB/VEB): 2151 samples
+Class 2 (Fusion/Paced/Other): 967 samples
+Balanced dataset: original 84730, balanced 216783
+
+---------------Getting lengths of dataset--------------------
+Total number of training beats :  216783
+Total number of training labels :  216783
+Total number of test beats :  21184
+Total number of test labels :  21184
+
+
+Validation Metrics:
+  Loss: 0.0851
+  Accuracy: 0.9700
+  Precision: 0.9702
+  Recall: 0.9700
+  F1-Score: 0.9700
+  Confusion Matrix:
+[[70246  1375   640]
+ [ 2999 68794   468]
+ [  777   246 71238]]
+
+Test Metrics:
+  Loss: 0.3120
+  Accuracy: 0.9218
+  Precision: 0.7846
+  Recall: 0.8219
+  F1-Score: 0.8017
+  Confusion Matrix:
+[[17217   568   281]
+ [  530  1539    82]
+ [  139    57   771]]
+
+ 3) Test 3 -> hidden neurn count changed into 64 (Solitting is as 80 and 20)
+
+Validation Metrics:
+  Loss: 0.1107
+  Accuracy: 0.9615
+  Precision: 0.9615
+  Recall: 0.9615
+  F1-Score: 0.9615
+  Confusion Matrix:
+[[68887  2545   829]
+ [ 2663 69072   526]
+ [ 1049   743 70469]]
+
+Test Metrics:
+  Loss: 0.3513
+  Accuracy: 0.9056
+  Precision: 0.7437
+  Recall: 0.8142
+  F1-Score: 0.7752
+  Confusion Matrix:
+[[16847   905   314]
+ [  471  1593    87]
+ [  135    88   744]]

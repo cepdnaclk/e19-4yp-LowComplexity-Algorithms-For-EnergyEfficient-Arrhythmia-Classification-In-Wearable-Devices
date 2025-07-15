@@ -71,7 +71,7 @@ def extract_heartbeats(signal, fs, annotation_rpeaks=None, before=0.25, after=0.
         valid_rpeaks.append(peak)
 
         # Plot segment
-        plot_segment(signal, start, end, peak, rpeaks[i-1] if i > 0 else None, rpeaks[i+1] if i < len(rpeaks) - 1 else None, fs, i, plot_dir)
+        # plot_segment(signal, start, end, peak, rpeaks[i-1] if i > 0 else None, rpeaks[i+1] if i < len(rpeaks) - 1 else None, fs, i, plot_dir)
 
     return np.array(segments), np.array(valid_rpeaks)
 
