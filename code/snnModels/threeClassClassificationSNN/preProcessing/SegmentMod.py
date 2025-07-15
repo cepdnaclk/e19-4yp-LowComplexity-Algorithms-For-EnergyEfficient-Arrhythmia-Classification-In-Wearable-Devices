@@ -75,42 +75,42 @@ def extract_heartbeats(signal, fs, annotation_rpeaks=None, before=0.25, after=0.
 
     return np.array(segments), np.array(valid_rpeaks)
 
-def plot_segment(signal, start, end, current_rpeak, prev_rpeak, next_rpeak, fs, segment_idx, plot_dir):
-    """
-    Plot a single ECG segment with marked R-peaks.
+# def plot_segment(signal, start, end, current_rpeak, prev_rpeak, next_rpeak, fs, segment_idx, plot_dir):
+#     """
+#     Plot a single ECG segment with marked R-peaks.
 
-    Args:
-        signal: Full ECG signal
-        start: Start index of the segment
-        end: End index of the segment
-        current_rpeak: Current R-peak index
-        prev_rpeak: Previous R-peak index (or None)
-        next_rpeak: Next R-peak index (or None)
-        fs: Sampling frequency (Hz)
-        segment_idx: Index of the segment for naming
-        plot_dir: Directory to save the plot
-    """
-    plt.figure(figsize=(10, 4))
-    time = np.arange(start, end) / fs
-    segment = signal[start:end]
+#     Args:
+#         signal: Full ECG signal
+#         start: Start index of the segment
+#         end: End index of the segment
+#         current_rpeak: Current R-peak index
+#         prev_rpeak: Previous R-peak index (or None)
+#         next_rpeak: Next R-peak index (or None)
+#         fs: Sampling frequency (Hz)
+#         segment_idx: Index of the segment for naming
+#         plot_dir: Directory to save the plot
+#     """
+#     plt.figure(figsize=(10, 4))
+#     time = np.arange(start, end) / fs
+#     segment = signal[start:end]
     
-    # Plot segment
-    plt.plot(time, segment, label='ECG Segment')
+#     # Plot segment
+#     plt.plot(time, segment, label='ECG Segment')
     
-    # Mark R-peaks
-    if prev_rpeak is not None and prev_rpeak >= start and prev_rpeak < end:
-        plt.axvline(x=(prev_rpeak / fs), color='g', linestyle='--', label='Previous R-peak')
-    plt.axvline(x=(current_rpeak / fs), color='r', linestyle='--', label='Current R-peak')
-    if next_rpeak is not None and next_rpeak >= start and next_rpeak < end:
-        plt.axvline(x=(next_rpeak / fs), color='b', linestyle='--', label='Next R-peak')
+#     # Mark R-peaks
+#     if prev_rpeak is not None and prev_rpeak >= start and prev_rpeak < end:
+#         plt.axvline(x=(prev_rpeak / fs), color='g', linestyle='--', label='Previous R-peak')
+#     plt.axvline(x=(current_rpeak / fs), color='r', linestyle='--', label='Current R-peak')
+#     if next_rpeak is not None and next_rpeak >= start and next_rpeak < end:
+#         plt.axvline(x=(next_rpeak / fs), color='b', linestyle='--', label='Next R-peak')
 
-    plt.xlabel('Time (s)')
-    plt.ylabel('Amplitude')
-    plt.title(f'Segment {segment_idx}: Previous, Current, and Next Beats')
-    plt.legend()
-    plt.grid(True)
-    plt.savefig(os.path.join(plot_dir, f'segment_{segment_idx}.png'))
-    plt.close()
+#     plt.xlabel('Time (s)')
+#     plt.ylabel('Amplitude')
+#     plt.title(f'Segment {segment_idx}: Previous, Current, and Next Beats')
+#     plt.legend()
+#     plt.grid(True)
+#     plt.savefig(os.path.join(plot_dir, f'segment_{segment_idx}.png'))
+#     plt.close()
 
 def pan_tompkins_rpeak_detection(signal, fs):
     """
