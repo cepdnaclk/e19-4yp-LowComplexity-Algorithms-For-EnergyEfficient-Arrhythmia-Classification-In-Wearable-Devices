@@ -1,5 +1,5 @@
 import numpy as np
-import torch 
+import torch
 import torch.nn as nn
 import matplotlib.pyplot as plt
 from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score, confusion_matrix
@@ -7,15 +7,24 @@ import seaborn as sns
 from torch.utils.data import DataLoader, TensorDataset
 
 def evaluate_model(model, X_val, y_val, X_test, y_test, device='cuda'):
+    """Evaluate the model on validation and test sets for 3-class classification."""
     def compute_metrics(X, y, dataset_name):
-        X_tensor = torch.FloatTensor(X).to(device)
-        y_tensor = torch.LongTensor(y).to(device)
+        # Ensure inputs are tensors on the correct device
+        if not isinstance(X, torch.Tensor):
+            X = torch.tensor(X, dtype=torch.float, device=device)
+        if not isinstance(y, torch.Tensor):
+            y = torch.tensor(y, dtype=torch.long, device=device)
+        
+        # Validate labels
+        if torch.any(y < 0) or torch.any(y > 2):
+            raise ValueError(f"Invalid labels in {dataset_name} set: must be in [0, 2], found {torch.unique(y)}")
+        
         model.eval()
         with torch.no_grad():
-            outputs = model(X_tensor)
-            loss = nn.CrossEntropyLoss()(outputs, y_tensor).item()
+            outputs = model(X)
+            loss = nn.CrossEntropyLoss()(outputs, y).item()
             _, predicted = torch.max(outputs, 1)
-            y_np = y_tensor.cpu().numpy()
+            y_np = y.cpu().numpy()
             predicted_np = predicted.cpu().numpy()
 
             accuracy = accuracy_score(y_np, predicted_np)
@@ -34,21 +43,39 @@ def evaluate_model(model, X_val, y_val, X_test, y_test, device='cuda'):
 
             plt.figure(figsize=(8, 6))
             sns.heatmap(cm, annot=True, fmt='d', cmap='Blues',
-                        xticklabels=['Normal', 'SVEB', 'VEB', 'Fusion', 'Unknown'],
-                        yticklabels=['Normal', 'SVEB', 'VEB', 'Fusion', 'Unknown'])
+                        xticklabels=['Normal', 'SVEB/VEB', 'Fusion/Paced/Other'],
+                        yticklabels=['Normal', 'SVEB/VEB', 'Fusion/Paced/Other'])
             plt.xlabel('Predicted')
             plt.ylabel('True')
             plt.title(f'{dataset_name} Confusion Matrix')
             plt.savefig(f'{dataset_name.lower()}_confusion_matrix.png')
             plt.close()
 
-    compute_metrics(X_val, y_val, 'Validation')
-    compute_metrics(X_test, y_test, 'Test')
+            return {
+                'loss': loss,
+                'accuracy': accuracy,
+                'precision': precision,
+                'recall': recall,
+                'f1': f1,
+                'confusion_matrix': cm
+            }
+
+    val_metrics = compute_metrics(X_val, y_val, 'Validation')
+    test_metrics = compute_metrics(X_test, y_test, 'Test')
+    return val_metrics, test_metrics
 
 def evaluate_model_epochs(model, X_test, y_test, num_epochs=10, device='cuda'):
-    X_test_tensor = torch.FloatTensor(X_test).to(device)
-    y_test_tensor = torch.LongTensor(y_test).to(device)
-    test_dataset = TensorDataset(X_test_tensor, y_test_tensor)
+    """Evaluate the model on the test set over multiple epochs for 3-class classification."""
+    if not isinstance(X_test, torch.Tensor):
+        X_test = torch.tensor(X_test, dtype=torch.float, device=device)
+    if not isinstance(y_test, torch.Tensor):
+        y_test = torch.tensor(y_test, dtype=torch.long, device=device)
+    
+    # Validate labels
+    if torch.any(y_test < 0) or torch.any(y_test > 2):
+        raise ValueError(f"Invalid test labels: must be in [0, 2], found {torch.unique(y_test)}")
+    
+    test_dataset = TensorDataset(X_test, y_test)
     test_loader = DataLoader(test_dataset, batch_size=64, shuffle=False)
 
     history = {
@@ -64,6 +91,7 @@ def evaluate_model_epochs(model, X_test, y_test, num_epochs=10, device='cuda'):
         total_test = 0
         with torch.no_grad():
             for inputs, labels in test_loader:
+                inputs, labels = inputs.to(device), labels.to(device)
                 outputs = model(inputs)
                 loss = nn.CrossEntropyLoss()(outputs, labels)
                 running_test_loss += loss.item() * inputs.size(0)
@@ -77,7 +105,6 @@ def evaluate_model_epochs(model, X_test, y_test, num_epochs=10, device='cuda'):
         history['test_acc'].append(test_acc)
         print(f"Test Epoch {epoch+1}/{num_epochs}, Test Loss: {test_loss:.4f}, Test Acc: {test_acc:.4f}")
 
-    # Compute average metrics
     avg_test_loss = np.mean(history['test_loss'])
     avg_test_acc = np.mean(history['test_acc'])
     print(f"\nAverage Test Metrics over {num_epochs} epochs:")
@@ -87,6 +114,7 @@ def evaluate_model_epochs(model, X_test, y_test, num_epochs=10, device='cuda'):
     return history
 
 def plot_metrics(history):
+    """Plot loss and accuracy curves."""
     plt.figure(figsize=(12, 8))
     plt.subplot(2, 1, 1)
     if 'train_loss' in history:

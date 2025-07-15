@@ -12,10 +12,8 @@ import numpy as np
 
 AAMI_classes = {
     0: ['N', 'L', 'R', 'e', 'j'],      
-    1: ['A', 'a', 'J', 'S'],          
-    2: ['V', 'E'],                    
-    3: ['F'],                         
-    4: ['P', '/', 'f', 'u']           
+    1: ['A', 'a', 'J', 'S', 'V', 'E', 'F'],          
+    2: ['F', 'P', '/', 'f', 'u']          
 }
 
 def get_class_from_symbol(symbol):
@@ -24,7 +22,7 @@ def get_class_from_symbol(symbol):
         if symbol in symbols:
             return class_idx
     # If symbol not found in any class, consider it belongs to unknown
-    return 4
+    return 2
 
 def create_labels(rpeaks, annotation):
     """
@@ -48,4 +46,3 @@ def create_labels(rpeaks, annotation):
         labels.append(class_idx)
     
     return np.array(labels)
-

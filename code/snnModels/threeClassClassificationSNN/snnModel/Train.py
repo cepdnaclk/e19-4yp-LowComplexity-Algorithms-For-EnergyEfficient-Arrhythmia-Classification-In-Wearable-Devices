@@ -3,10 +3,9 @@ import torch
 import torch.nn as nn
 from torch.utils.data import DataLoader, TensorDataset
 import os
-from snnModel.Evaluate import plot_metrics
 
 def train_model(X_train, y_train, X_val, y_val, batch_size=64, num_epochs=10, device='cuda', class_weights=None):
-    model = SNN(num_inputs=X_train.shape[1], num_outputs=5).to(device)
+    model = SNN(num_inputs=X_train.shape[1], num_outputs=3).to(device)
     criterion = nn.CrossEntropyLoss()
     optimizer = torch.optim.Adam(model.parameters(), lr=0.001)
 
