@@ -1,77 +1,56 @@
 import neurokit2 as nk
 import numpy as np
 from scipy.signal import find_peaks
-import matplotlib.pyplot as plt
-import os
 
-def extract_heartbeats(signal, fs, annotation_rpeaks=None, before=0.25, after=0.4, fixed_length=300, plot_dir='plots'):
+def extract_heartbeats(signal, fs, annotation_rpeaks=None, before=0.25, after=0.4, fixed_length=300):
     """
-    Extract segments including previous, current, and next heartbeats centered at R-peaks using a sliding window.
-
+    Extract fixed-length heartbeats centered at R-peaks
+    
     Args:
         signal: ECG signal
         fs: Sampling frequency (Hz)
         annotation_rpeaks: Optional pre-annotated R-peaks
-        before: Seconds before R-peak for a single beat (default 0.25)
-        after: Seconds after R-peak for a single beat (default 0.4)
-        fixed_length: Target samples per beat (default 300)
-        plot_dir: Directory to save segment plots (default 'plots')
-
+        before: Seconds before R-peak (default 0.25)
+        after: Seconds after R-peak (default 0.4)
+        fixed_length: Target samples per beat (default 250)
+        
     Returns:
-        segments: Array of fixed-length segments, each including previous, current, and next beats (n_segments, fixed_length*3)
+        beats: Array of fixed-length beats (n_beats, fixed_length)
         valid_rpeaks: Array of used R-peak positions
     """
-    # Clean signal and detect R-peaks using neurokit2
+    # Clean signal and detect R-peaks using neurokit2 library
     cleaned = nk.ecg_clean(signal, sampling_rate=fs)
     rpeaks = annotation_rpeaks if annotation_rpeaks is not None else \
              nk.ecg_findpeaks(cleaned, sampling_rate=fs)['ECG_R_Peaks']
-
-    # Ensure plot directory exists
-    os.makedirs(plot_dir, exist_ok=True)
-
-    segments = []
+    
+    beats = []
     valid_rpeaks = []
-
-    # Single beat window size in samples
-    samples_before = int(before * fs)
-    samples_after = int(after * fs)
-    single_beat_length = samples_before + samples_after
-    total_length = fixed_length * 3  # Three beats per segment
-
-    for i, peak in enumerate(rpeaks):
-        # Skip first and last beats if no previous or next beat exists
-        if i == 0 or i == len(rpeaks) - 1:
-            continue
-
-        # Calculate midpoints for sliding window
-        prev_mid = (rpeaks[i-1] + peak) // 2 if i > 0 else peak - single_beat_length
-        next_mid = (peak + rpeaks[i+1]) // 2 if i < len(rpeaks) - 1 else peak + single_beat_length
-        prev_start = (rpeaks[i-2] + rpeaks[i-1]) // 2 if i > 1 else peak - 2 * single_beat_length
-
-        # Define segment boundaries
-        start = prev_start
-        end = next_mid
-
+    
+    for peak in rpeaks:
+        # Calculate fixed window around R-peak
+        center = int(peak)
+        start = center - fixed_length//2
+        end = center + fixed_length//2
+        
         # Handle edge cases
         if start < 0:
-            start = 0
-        if end > len(signal):
-            end = len(signal)
-
-        # Extract segment
-        segment = signal[start:end]
-
-        # Pad or trim to fixed length
-        if len(segment) < total_length:
-            segment = np.pad(segment, (0, total_length - len(segment)), mode='constant')
-        elif len(segment) > total_length:
-            segment = segment[:total_length]
-
-        segments.append(segment)
+            start, end = 0, fixed_length
+        elif end > len(signal):
+            start, end = len(signal)-fixed_length, len(signal)
+        
+        beat = signal[start:end]
+        
+        # Ensure exact length (in case of sampling rate rounding)
+        if len(beat) < fixed_length:
+            beat = np.pad(beat, (0, fixed_length - len(beat)))
+        elif len(beat) > fixed_length:
+            beat = beat[:fixed_length]
+        
+        beats.append(beat)
         valid_rpeaks.append(peak)
 
         # Plot segment
-        plot_segment(signal, start, end, peak, rpeaks[i-1], rpeaks[i+1], fs, i, plot_dir)
+        plot_segment(signal, start, end, peak, rpeaks[i-1] if i > 0 else None, rpeaks[i+1] if i < len(rpeaks) - 1 else None, fs, i, plot_dir)
 
     return np.array(segments), np.array(valid_rpeaks)
 

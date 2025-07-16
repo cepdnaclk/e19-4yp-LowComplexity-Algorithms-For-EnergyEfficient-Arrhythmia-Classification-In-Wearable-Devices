@@ -1,0 +1,27 @@
+
+Validation Metrics:
+  Loss: 0.9173
+  Accuracy: 0.6752
+  Precision: 0.6847
+  Recall: 0.6752
+  F1-Score: 0.6775
+  Confusion Matrix:
+[[28617  1781  4128  1747  5274]
+ [ 5152 26684  4809  1767  3135]
+ [ 3040  2004 26103  1571  8829]
+ [ 4502   779  3476 31581  1209]
+ [ 2633  2036  6520  3087 27271]]
+Reshaped input from (batch_size, 750) to (batch_size, 10, 75)
+
+Test Metrics:
+  Loss: 1.5199
+  Accuracy: 0.5039
+  Precision: 0.2421
+  Recall: 0.3415
+  F1-Score: 0.2250
+  Confusion Matrix:
+[[23519  3594  7860  3805  5460]
+ [ 1167   219   175    90   185]
+ [  247   297  1424   116  1137]
+ [  211     6    45   104    22]
+ [  435   114   287   119   506]]
