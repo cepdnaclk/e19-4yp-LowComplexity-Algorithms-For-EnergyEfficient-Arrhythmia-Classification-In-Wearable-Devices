@@ -1,46 +1,37 @@
-# SNN Model for 5-Class Classification
 
+import torch
 import torch.nn as nn
 import snntorch as snn
 from snntorch import surrogate
-import torch 
+import snntorch.utils as utils
 
-class SNN(nn.Module):
-    def __init__(self, num_inputs=250, num_hidden=256,num_hidden2 = 128, num_outputs=5, num_steps=10, beta=0.9):
+class CSNN(nn.Module):
+    def __init__(self, num_inputs=250, num_outputs=5, num_steps=50, beta=0.5, device='cpu'):
         super().__init__()
         self.num_steps = num_steps
+        self.device = device
         spike_grad = surrogate.fast_sigmoid(slope=25)
-        self.fc1 = nn.Linear(num_inputs, num_hidden)
-        self.lif1 = snn.Leaky(beta=beta, spike_grad=spike_grad)
-        self.fc2 = nn.Linear(num_hidden, num_hidden2)
-        self.lif2 = snn.Leaky(beta=beta, spike_grad=spike_grad)
-        self.fc3 = nn.Linear(num_hidden2, num_outputs)
-        self.lif3 = snn.Leaky(beta=beta, spike_grad=spike_grad)
-
+        
+        self.net = nn.Sequential(
+            nn.Conv1d(1, 12, kernel_size=5),  # 12 filters, kernel size 5
+            nn.MaxPool1d(2),                  # Max pooling with kernel size 2
+            snn.Leaky(beta=beta, spike_grad=spike_grad, init_hidden=True),
+            nn.Conv1d(12, 64, kernel_size=5), # 64 filters, kernel size 5
+            nn.MaxPool1d(2),                  # Max pooling with kernel size 2
+            snn.Leaky(beta=beta, spike_grad=spike_grad, init_hidden=True),
+            nn.Flatten(),
+            nn.Linear(64 * 59, num_outputs),  # Adjusted for input size 250
+            snn.Leaky(beta=beta, spike_grad=spike_grad, init_hidden=True, output=True)
+        ).to(device)
+    
     def forward(self, x):
-        batch_size = x.size(0)
-        mem1 = self.lif1.init_leaky()
-        mem2 = self.lif2.init_leaky()
-        mem3 = self.lif3.init_leaky()
-        spk3_rec = []
+        spk_rec = []
+        mem_rec = []
+        utils.reset(self.net)  # Reset hidden states
+        
         for step in range(self.num_steps):
-            cur1 = self.fc1(x)  
-            spk1, mem1 = self.lif1(cur1, mem1)
-            cur2 = self.fc2(spk1)
-            spk2, mem2 = self.lif2(cur2, mem2)
-            cur3 = self.fc3(spk2)
-            spk3, mem3 = self.lif3(cur3, mem3)
-            spk3_rec.append(spk3)
-        return torch.stack(spk3_rec, dim=0).sum(dim=0)
-    
-# if __name__ == "__main__":
-#     from torchsummary import summary
-#     import torch
-
-#     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-#     model = SNN(num_inputs=250, num_outputs=5).to(device)
-#     summary(model, input_size=(250,), device=str(device))
-
-
-    
-
+            spk, mem = self.net(x)
+            spk_rec.append(spk)
+            mem_rec.append(mem)
+        
+        return torch.stack(spk_rec), torch.stack(mem_rec)
